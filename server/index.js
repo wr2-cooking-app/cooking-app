@@ -6,27 +6,27 @@ const authCtrl = require("./controllers/authCtrl");
 
 const app = express();
 
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
 massive({
-    connection_string: CONNECTION_STRING,
-    ssl: {rejectUnauthorized: false}
+  connectionString: CONNECTION_STRING,
+  ssl: { rejectUnauthorized: false }
 })
-    .then(db => {
-        app.set("db", db);
-        console.log("db connected");
-    })
-    .catch(err => console.log(err));
+  .then((db) => {
+    app.set("db", db);
+    console.log("db connected");
+  })
+  .catch((err) => console.log(err));
 
 app.use(
-    session({
-        secret: SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7 * 52
-        },
-    })
+  session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 * 52
+    }
+  })
 );
 
 app.use(express.json());
@@ -34,5 +34,5 @@ app.use(express.json());
 //auth endpoints
 
 app.listen(SERVER_PORT, () => {
-    console.log(`Server listening on port ${SERVER_PORT}`);
+  console.log(`Server listening on port ${SERVER_PORT}`);
 });
