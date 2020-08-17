@@ -13,7 +13,8 @@ function App() {
     const checkSession = async () => {
       // TODO Aaron set up endpoint
       // const res = await Axios.get("/auth/me");
-      const res = {};
+      // dummy data for now
+      const res = { data: { id: 1, username: "Raiguard" } };
       if (res.data) {
         dispatch(setUser(res.data));
       }
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      {sessionChecked && (userData.id ? <label>userData.username</label> : <label>Not signed in</label>)}
+      {sessionChecked && (userData.id ? <label>Signed in as {userData.username}</label> : <label>Not signed in</label>)}
     </div>
   );
 }
