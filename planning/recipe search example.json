@@ -1,0 +1,101 @@
+{
+  "results": [
+    {
+      "id": 878183,
+      "title": "Jack Daniel’s Grilled Steak",
+      "readyInMinutes": 30,
+      "servings": 4,
+      "sourceUrl": "http://diethood.com/jack-daniels-grilled-steak-recipe/",
+      "openLicense": 0,
+      "image": "jack-daniels-grilled-steak-878183.jpg"
+    },
+    {
+      "id": 595654,
+      "title": "Perfect Pan-Seared Steak",
+      "readyInMinutes": 10,
+      "servings": 4,
+      "sourceUrl": "http://www.afamilyfeast.com/perfect-pan-seared-steak/",
+      "openLicense": 0,
+      "image": "Perfect-Pan-Seared-Steak-595654.jpg"
+    },
+    {
+      "id": 864562,
+      "title": "The BEST Steak Fajitas",
+      "readyInMinutes": 210,
+      "servings": 6,
+      "sourceUrl": "http://littlespicejar.com/the-best-steak-fajitas/",
+      "openLicense": 0,
+      "image": "the-best-steak-fajitas-864562.jpg"
+    },
+    {
+      "id": 818516,
+      "title": "Steak Fajita Bowls with Garlic Lime Rice",
+      "readyInMinutes": 20,
+      "servings": 6,
+      "sourceUrl": "http://littlespicejar.com/steak-fajita-bowls/",
+      "openLicense": 0,
+      "image": "steak-fajita-bowls-with-garlic-lime-rice-818516.jpg"
+    },
+    {
+      "id": 483247,
+      "title": "Garlic Soy Marinated Grilled Flank Steak",
+      "readyInMinutes": 55,
+      "servings": 4,
+      "sourceUrl": "http://thelemonbowl.com/2012/07/garlic-soy-marinated-grilled-flank-steak.html",
+      "openLicense": 0,
+      "image": "Garlic-Soy-Marinated-Grilled-Flank-Steak-483247.jpg"
+    },
+    {
+      "id": 974638,
+      "title": "Sheet Pan Steak and Veggies",
+      "readyInMinutes": 30,
+      "servings": 6,
+      "sourceUrl": "https://damndelicious.net/2016/12/16/sheet-pan-steak-and-veggies/",
+      "openLicense": 0,
+      "image": "sheet-pan-steak-and-veggies-974638.jpg"
+    },
+    {
+      "id": 538905,
+      "title": "Steak Sandwiches | Remembering Dad",
+      "readyInMinutes": 40,
+      "servings": 4,
+      "sourceUrl": "http://www.cravingsofalunatic.com/2014/05/steak-sandwiches-remembering-dad.html",
+      "openLicense": 0,
+      "image": "Steak-Sandwiches---Remembering-Dad-538905.jpg"
+    },
+    {
+      "id": 863738,
+      "title": "Porterhouse Steak with Herbed Butter",
+      "readyInMinutes": 40,
+      "servings": 8,
+      "sourceUrl": "http://www.epicurious.com/recipes/food/views/porterhouse-steak-with-herbed-butter-51244040",
+      "openLicense": 0,
+      "image": "porterhouse-steak-with-herbed-butter-863738.jpg"
+    },
+    {
+      "id": 979825,
+      "title": "Steak with Garlic Parmesan Cream Sauce",
+      "readyInMinutes": 30,
+      "servings": 8,
+      "sourceUrl": "https://damndelicious.net/2017/03/25/steak-with-garlic-parmesan-cream-sauce/",
+      "openLicense": 0,
+      "image": "steak-with-garlic-parmesan-cream-sauce-979825.jpg"
+    },
+    {
+      "id": 504389,
+      "title": "Cube Steaks and Gravy in the Slow Cooker",
+      "readyInMinutes": 45,
+      "servings": 8,
+      "sourceUrl": "http://eatathomecooks.com/2012/12/cube-steaks-and-gravy-in-the-slow-cooker.html",
+      "openLicense": 0,
+      "image": "Cube-Steaks-and-Gravy-in-the-Slow-Cooker-504389.jpg"
+    }
+  ],
+  "baseUri": "https://spoonacular.com/recipeImages/",
+  "offset": 0,
+  "number": 10,
+  "totalResults": 761,
+  "processingTimeMs": 458,
+  "expires": 1597698201147,
+  "isStale": false
+}

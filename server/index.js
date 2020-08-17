@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const authCtrl = require("./controllers/authCtrl");
+const testCtrl = require("./controllers/spoonacularTestCtrl");
 
 const app = express();
 
@@ -32,6 +33,9 @@ app.use(
 app.use(express.json());
 
 //auth endpoints
+
+// TEMPORARY TESTING ENPOINTS
+app.get("/test/spoonacular", testCtrl.testQuery);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);

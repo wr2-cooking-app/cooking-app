@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.scss";
 import { setUser } from "./redux/reducer";
+import Test from "./Components/Test/Test";
 
 function App() {
   const [sessionChecked, setSessionChecked] = useState(false);
@@ -26,7 +27,15 @@ function App() {
 
   return (
     <div className="App">
-      {sessionChecked && (userData.id ? <label>Signed in as {userData.username}</label> : <label>Not signed in</label>)}
+      {sessionChecked &&
+        (userData.id ? (
+          <>
+            <label>Signed in as {userData.username} (but not really, yet)</label>
+            <Test />
+          </>
+        ) : (
+          <label>Not signed in</label>
+        ))}
     </div>
   );
 }

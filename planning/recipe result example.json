@@ -1,0 +1,366 @@
+{
+  "vegetarian": false,
+  "vegan": false,
+  "glutenFree": true,
+  "dairyFree": true,
+  "veryHealthy": false,
+  "cheap": false,
+  "veryPopular": true,
+  "sustainable": false,
+  "weightWatcherSmartPoints": 23,
+  "gaps": "no",
+  "lowFodmap": false,
+  "preparationMinutes": 10,
+  "cookingMinutes": 20,
+  "aggregateLikes": 138322,
+  "spoonacularScore": 97.0,
+  "healthScore": 34.0,
+  "creditsText": "Diethood",
+  "sourceName": "Diethood",
+  "pricePerServing": 752.4,
+  "extendedIngredients": [
+    {
+      "id": 1002046,
+      "aisle": "Condiments",
+      "image": "dijon-mustard.jpg",
+      "consistency": "liquid",
+      "name": "dijon mustard",
+      "original": "1 tablespoon dijon mustard",
+      "originalString": "1 tablespoon dijon mustard",
+      "originalName": "dijon mustard",
+      "amount": 1.0,
+      "unit": "tablespoon",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": { "amount": 1.0, "unitShort": "Tbsp", "unitLong": "Tbsp" },
+        "metric": { "amount": 1.0, "unitShort": "Tbsp", "unitLong": "Tbsp" }
+      }
+    },
+    {
+      "id": 11215,
+      "aisle": "Produce",
+      "image": "garlic.png",
+      "consistency": "solid",
+      "name": "garlic cloves",
+      "original": "3 garlic cloves, minced",
+      "originalString": "3 garlic cloves, minced",
+      "originalName": "garlic cloves, minced",
+      "amount": 3.0,
+      "unit": "",
+      "meta": ["minced"],
+      "metaInformation": ["minced"],
+      "measures": {
+        "us": { "amount": 3.0, "unitShort": "", "unitLong": "" },
+        "metric": { "amount": 3.0, "unitShort": "", "unitLong": "" }
+      }
+    },
+    {
+      "id": 1002030,
+      "aisle": "Spices and Seasonings",
+      "image": "pepper.jpg",
+      "consistency": "solid",
+      "name": "ground pepper",
+      "original": "fresh ground pepper",
+      "originalString": "fresh ground pepper",
+      "originalName": "fresh ground pepper",
+      "amount": 4.0,
+      "unit": "servings",
+      "meta": ["fresh"],
+      "metaInformation": ["fresh"],
+      "measures": {
+        "us": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" },
+        "metric": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" }
+      }
+    },
+    {
+      "id": 1002030,
+      "aisle": "Spices and Seasonings",
+      "image": "pepper.jpg",
+      "consistency": "solid",
+      "name": "ground pepper",
+      "original": "salt and fresh ground pepper, to taste",
+      "originalString": "salt and fresh ground pepper, to taste",
+      "originalName": "salt and fresh ground pepper, to taste",
+      "amount": 4.0,
+      "unit": "servings",
+      "meta": ["fresh", "to taste"],
+      "metaInformation": ["fresh", "to taste"],
+      "measures": {
+        "us": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" },
+        "metric": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" }
+      }
+    },
+    {
+      "id": 19334,
+      "aisle": "Baking",
+      "image": "dark-brown-sugar.png",
+      "consistency": "solid",
+      "name": "light brown sugar",
+      "original": "1/4-cup light brown sugar",
+      "originalString": "1/4-cup light brown sugar",
+      "originalName": "light brown sugar",
+      "amount": 0.25,
+      "unit": "cup",
+      "meta": ["light"],
+      "metaInformation": ["light"],
+      "measures": {
+        "us": { "amount": 0.25, "unitShort": "cups", "unitLong": "cups" },
+        "metric": { "amount": 59.147, "unitShort": "ml", "unitLong": "milliliters" }
+      }
+    },
+    {
+      "id": 16424,
+      "aisle": "Ethnic Foods;Condiments",
+      "image": "soy-sauce.jpg",
+      "consistency": "liquid",
+      "name": "low sodium soy sauce",
+      "original": "1/2-cup low sodium soy sauce",
+      "originalString": "1/2-cup low sodium soy sauce",
+      "originalName": "low sodium soy sauce",
+      "amount": 0.5,
+      "unit": "cup",
+      "meta": ["low sodium"],
+      "metaInformation": ["low sodium"],
+      "measures": {
+        "us": { "amount": 0.5, "unitShort": "cups", "unitLong": "cups" },
+        "metric": { "amount": 118.294, "unitShort": "ml", "unitLong": "milliliters" }
+      }
+    },
+    {
+      "id": 4053,
+      "aisle": "Oil, Vinegar, Salad Dressing",
+      "image": "olive-oil.jpg",
+      "consistency": "liquid",
+      "name": "olive oil",
+      "original": "1 tablespoon olive oil",
+      "originalString": "1 tablespoon olive oil",
+      "originalName": "olive oil",
+      "amount": 1.0,
+      "unit": "tablespoon",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": { "amount": 1.0, "unitShort": "Tbsp", "unitLong": "Tbsp" },
+        "metric": { "amount": 1.0, "unitShort": "Tbsp", "unitLong": "Tbsp" }
+      }
+    },
+    {
+      "id": 11282,
+      "aisle": "Produce",
+      "image": "brown-onion.png",
+      "consistency": "solid",
+      "name": "onions",
+      "original": "4 whole sweet onions, cut into rings",
+      "originalString": "4 whole sweet onions, cut into rings",
+      "originalName": "whole sweet onions, cut into rings",
+      "amount": 4.0,
+      "unit": "",
+      "meta": ["sweet", "whole", "cut into rings"],
+      "metaInformation": ["sweet", "whole", "cut into rings"],
+      "measures": {
+        "us": { "amount": 4.0, "unitShort": "", "unitLong": "" },
+        "metric": { "amount": 4.0, "unitShort": "", "unitLong": "" }
+      }
+    },
+    {
+      "id": 23232,
+      "aisle": "Meat",
+      "image": "ribeye-raw.jpg",
+      "consistency": "solid",
+      "name": "steaks",
+      "original": "4 (8 ounces each) New York Strip Steaks, boneless",
+      "originalString": "4 (8 ounces each) New York Strip Steaks, boneless",
+      "originalName": "each) New York Strip Steaks, boneless",
+      "amount": 32.0,
+      "unit": "ounces",
+      "meta": ["boneless"],
+      "metaInformation": ["boneless"],
+      "measures": {
+        "us": { "amount": 32.0, "unitShort": "oz", "unitLong": "ounces" },
+        "metric": { "amount": 907.185, "unitShort": "g", "unitLong": "grams" }
+      }
+    },
+    {
+      "id": 14052,
+      "aisle": "Alcoholic Beverages",
+      "image": "whiskey-bottle.jpg",
+      "consistency": "liquid",
+      "name": "whiskey",
+      "original": "1/2-cup Jack Daniel's Whiskey",
+      "originalString": "1/2-cup Jack Daniel's Whiskey",
+      "originalName": "Jack Daniel's Whiskey",
+      "amount": 0.5,
+      "unit": "cup",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": { "amount": 0.5, "unitShort": "cups", "unitLong": "cups" },
+        "metric": { "amount": 118.294, "unitShort": "ml", "unitLong": "milliliters" }
+      }
+    },
+    {
+      "id": 11477,
+      "aisle": "Produce",
+      "image": "zucchini.jpg",
+      "consistency": "solid",
+      "name": "zucchini",
+      "original": "4 zucchini, cut into rings",
+      "originalString": "4 zucchini, cut into rings",
+      "originalName": "zucchini, cut into rings",
+      "amount": 4.0,
+      "unit": "",
+      "meta": ["cut into rings"],
+      "metaInformation": ["cut into rings"],
+      "measures": {
+        "us": { "amount": 4.0, "unitShort": "", "unitLong": "" },
+        "metric": { "amount": 4.0, "unitShort": "", "unitLong": "" }
+      }
+    }
+  ],
+  "id": 878183,
+  "title": "Jack Daniel’s Grilled Steak",
+  "readyInMinutes": 30,
+  "servings": 4,
+  "sourceUrl": "http://diethood.com/jack-daniels-grilled-steak-recipe/",
+  "image": "https://spoonacular.com/recipeImages/878183-556x370.jpg",
+  "imageType": "jpg",
+  "summary": "You can never have too many main course recipes, so give Jack Daniel’s Grilled Steak a try. One serving contains <b>760 calories</b>, <b>51g of protein</b>, and <b>40g of fat</b>. For <b>$7.52 per serving</b>, this recipe <b>covers 35%</b> of your daily requirements of vitamins and minerals. It will be a hit at your <b>The Fourth Of July</b> event. 138322 people have made this recipe and would make it again. It is a good option if you're following a <b>gluten free and dairy free</b> diet. If you have olive oil, olive oil, jack daniel's whiskey, and a few other ingredients on hand, you can make it. To use up the light brown sugar you could follow this main course with the <a href=\"https://spoonacular.com/recipes/apricot-tart-with-brown-sugar-cinnamon-pastry-225822\">Apricot tart with brown sugar & cinnamon pastry</a> as a dessert. From preparation to the plate, this recipe takes approximately <b>30 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 97%</b>. This score is tremendous. Try <a href=\"https://spoonacular.com/recipes/jack-daniels-flank-steak-99572\">Jack Daniel's Flank Steak</a>, <a href=\"https://spoonacular.com/recipes/jack-daniels-grilled-chicken-low-carb-143831\">Jack Daniel's Grilled Chicken - Low Carb</a>, and <a href=\"https://spoonacular.com/recipes/jack-daniels-cake-132903\">Jack Daniel's Cake</a> for similar recipes.",
+  "cuisines": [],
+  "dishTypes": ["lunch", "main course", "main dish", "dinner"],
+  "diets": ["gluten free", "dairy free"],
+  "occasions": ["valentine's day", "father's day", "4th of july", "summer"],
+  "winePairing": {
+    "pairedWines": ["merlot", "cabernet sauvignon", "pinot noir"],
+    "pairingText": "Merlot, Cabernet Sauvignon, and Pinot Noir are great choices for Steak. After all, beef and red wine are a classic combination. Generally, leaner steaks go well with light or medium-bodied reds, such as pinot noir or merlot, while fattier steaks can handle a bold red, such as cabernet sauvingnon. One wine you could try is Simi Merlot. It has 4.2 out of 5 stars and a bottle costs about 12 dollars.",
+    "productMatches": [
+      {
+        "id": 435812,
+        "title": "Simi Merlot",
+        "description": "Our 2006 Merlot is deep red in color with garnet edges. Aromas of spicy cloveand cinnamon leap from the glass with the essence of red fruits, including Bingcherries and red berries, combining on the palate. This wine offers subtle tanninsand lush ripe flavors accented by final notes of toast and cocoa. It pairs beautifullywith a classic French dip, veal chops or grilled sausages.",
+        "price": "$11.99",
+        "imageUrl": "https://spoonacular.com/productImages/435812-312x231.jpg",
+        "averageRating": 0.8400000000000001,
+        "ratingCount": 7.0,
+        "score": 0.7945454545454547,
+        "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fsimi-merlot-2006%2F103320"
+      }
+    ]
+  },
+  "instructions": "Place the steaks in a pan that is large enough to hold all 4. Set aside.In a mixing bowl, whisk together the whiskey, soy sauce, olive oil, mustard, brown sugar, garlic, and fresh ground pepper; whisk until thoroughly combined.Pour the marinade over the steaks, turning the steaks once or twice to coat evenly with the marinade.Cover with plastic wrap and marinade over night, or at least for 4 hours, in the refrigerator, turning it once while in the fridge.Remove steaks from fridge 30 minutes before you are ready to grill.Set up the charcoal grill for direct grilling.Fire up the grill and preheat to high. For steaks, you want the heat as high as possible.Right before you are ready to cook, pour cooking oil on a paper towel and oil the grate using long-handled tongs.Drain the marinade off the steak and discard the marinade.Place the steak on the hot grate and grill until cooked to taste, 6 to 8 minutes per side for medium-rare.After the steak is properly seared, if its not finished cooking, move it to the warm side of the grate (not directly over the coals), close the lid and continue to cook the steak until its at desired temperature for doneness.To test for doneness, insert an instant-read thermometer in the side of the steak. The internal temperature should be 145F for medium-rare.Transfer the grilled steaks to a cutting board and let the steak rest for about 5 minutes before cutting.Season the onions and zucchini with salt and pepper and drizzle with olive oil.Working in batches, grill the vegetables until tender and lightly charred all over, about 6 to 7 minutes for the onions and zucchini.Remove from grill and serve with steaks.",
+  "analyzedInstructions": [
+    {
+      "name": "",
+      "steps": [
+        {
+          "number": 1,
+          "step": "Place the steaks in a pan that is large enough to hold all",
+          "ingredients": [{ "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }],
+          "equipment": [{ "id": 404645, "name": "frying pan", "localizedName": "frying pan", "image": "pan.png" }]
+        },
+        {
+          "number": 2,
+          "step": "Set aside.In a mixing bowl, whisk together the whiskey, soy sauce, olive oil, mustard, brown sugar, garlic, and fresh ground pepper; whisk until thoroughly combined.",
+          "ingredients": [
+            {
+              "id": 1002030,
+              "name": "ground black pepper",
+              "localizedName": "ground black pepper",
+              "image": "pepper.jpg"
+            },
+            { "id": 19334, "name": "brown sugar", "localizedName": "brown sugar", "image": "dark-brown-sugar.png" },
+            { "id": 4053, "name": "olive oil", "localizedName": "olive oil", "image": "olive-oil.jpg" },
+            { "id": 16124, "name": "soy sauce", "localizedName": "soy sauce", "image": "soy-sauce.jpg" },
+            { "id": 2046, "name": "mustard", "localizedName": "mustard", "image": "regular-mustard.jpg" },
+            { "id": 14052, "name": "whiskey", "localizedName": "whiskey", "image": "whiskey-bottle.jpg" },
+            { "id": 11215, "name": "garlic", "localizedName": "garlic", "image": "garlic.png" }
+          ],
+          "equipment": [
+            { "id": 405907, "name": "mixing bowl", "localizedName": "mixing bowl", "image": "mixing-bowl.jpg" },
+            { "id": 404661, "name": "whisk", "localizedName": "whisk", "image": "whisk.png" }
+          ]
+        },
+        {
+          "number": 3,
+          "step": "Pour the marinade over the steaks, turning the steaks once or twice to coat evenly with the marinade.Cover with plastic wrap and marinade over night, or at least for 4 hours, in the refrigerator, turning it once while in the fridge.",
+          "ingredients": [
+            { "id": 0, "name": "marinade", "localizedName": "marinade", "image": "seasoning.png" },
+            { "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" },
+            { "id": 10018364, "name": "wrap", "localizedName": "wrap", "image": "flour-tortilla.jpg" }
+          ],
+          "equipment": [
+            { "id": 404730, "name": "plastic wrap", "localizedName": "plastic wrap", "image": "plastic-wrap.jpg" }
+          ],
+          "length": { "number": 240, "unit": "minutes" }
+        },
+        {
+          "number": 4,
+          "step": "Remove steaks from fridge 30 minutes before you are ready to grill.Set up the charcoal grill for direct grilling.Fire up the grill and preheat to high. For steaks, you want the heat as high as possible.Right before you are ready to cook, pour cooking oil on a paper towel and oil the grate using long-handled tongs.",
+          "ingredients": [
+            { "id": 4582, "name": "cooking oil", "localizedName": "cooking oil", "image": "vegetable-oil.jpg" },
+            { "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }
+          ],
+          "equipment": [
+            { "id": 405895, "name": "paper towels", "localizedName": "paper towels", "image": "paper-towels.jpg" },
+            { "id": 404706, "name": "grill", "localizedName": "grill", "image": "grill.jpg" },
+            { "id": 404641, "name": "tongs", "localizedName": "tongs", "image": "tongs.jpg" }
+          ],
+          "length": { "number": 30, "unit": "minutes" }
+        },
+        {
+          "number": 5,
+          "step": "Drain the marinade off the steak and discard the marinade.",
+          "ingredients": [
+            { "id": 0, "name": "marinade", "localizedName": "marinade", "image": "seasoning.png" },
+            { "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }
+          ],
+          "equipment": []
+        },
+        {
+          "number": 6,
+          "step": "Place the steak on the hot grate and grill until cooked to taste, 6 to 8 minutes per side for medium-rare.After the steak is properly seared, if its not finished cooking, move it to the warm side of the grate (not directly over the coals), close the lid and continue to cook the steak until its at desired temperature for doneness.To test for doneness, insert an instant-read thermometer in the side of the steak. The internal temperature should be 145F for medium-rare.",
+          "ingredients": [{ "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }],
+          "equipment": [
+            {
+              "id": 404789,
+              "name": "kitchen thermometer",
+              "localizedName": "kitchen thermometer",
+              "image": "food-thermometer.jpg"
+            },
+            { "id": 404706, "name": "grill", "localizedName": "grill", "image": "grill.jpg" }
+          ],
+          "length": { "number": 6, "unit": "minutes" }
+        },
+        {
+          "number": 7,
+          "step": "Transfer the grilled steaks to a cutting board and let the steak rest for about 5 minutes before cutting.Season the onions and zucchini with salt and pepper and drizzle with olive oil.Working in batches, grill the vegetables until tender and lightly charred all over, about 6 to 7 minutes for the onions and zucchini.",
+          "ingredients": [
+            {
+              "id": 1102047,
+              "name": "salt and pepper",
+              "localizedName": "salt and pepper",
+              "image": "salt-and-pepper.jpg"
+            },
+            { "id": 11583, "name": "vegetable", "localizedName": "vegetable", "image": "mixed-vegetables.png" },
+            { "id": 4053, "name": "olive oil", "localizedName": "olive oil", "image": "olive-oil.jpg" },
+            { "id": 11477, "name": "zucchini", "localizedName": "zucchini", "image": "zucchini.jpg" },
+            { "id": 11282, "name": "onion", "localizedName": "onion", "image": "brown-onion.png" },
+            { "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }
+          ],
+          "equipment": [
+            { "id": 404716, "name": "cutting board", "localizedName": "cutting board", "image": "cutting-board.jpg" },
+            { "id": 404706, "name": "grill", "localizedName": "grill", "image": "grill.jpg" }
+          ],
+          "length": { "number": 11, "unit": "minutes" }
+        },
+        {
+          "number": 8,
+          "step": "Remove from grill and serve with steaks.",
+          "ingredients": [{ "id": 23232, "name": "steak", "localizedName": "steak", "image": "ribeye-raw.jpg" }],
+          "equipment": [{ "id": 404706, "name": "grill", "localizedName": "grill", "image": "grill.jpg" }]
+        }
+      ]
+    }
+  ],
+  "originalId": null
+}
