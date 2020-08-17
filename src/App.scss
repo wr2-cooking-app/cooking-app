@@ -6,6 +6,18 @@
   font-family: sans-serif;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  width: 100%;
+}
+
+div,
+main,
+section,
+a,
+dl,
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
 }
