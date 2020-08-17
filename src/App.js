@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.scss";
 import { setUser } from "./redux/reducer";
-import Test from "./Components/Test/Test";
+import routes from "./routes";
 
 function App() {
   const [sessionChecked, setSessionChecked] = useState(false);
@@ -31,7 +31,7 @@ function App() {
         (userData.id ? (
           <>
             <label>Signed in as {userData.username} (but not really, yet)</label>
-            <Test />
+            {routes}
           </>
         ) : (
           <label>Not signed in</label>
