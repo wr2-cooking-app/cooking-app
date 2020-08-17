@@ -10,6 +10,7 @@ function App() {
 
   // check session for signed in status
   useEffect(() => {
+    // useEffect() does not support async callbacks so we must nest it inside... ugh
     const checkSession = async () => {
       // TODO Aaron set up endpoint
       // const res = await Axios.get("/auth/me");
