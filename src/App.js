@@ -23,15 +23,18 @@ function App() {
 
   return (
     <div className="App">
-      {sessionChecked &&
-        (userData.id ? (
+      {
+        sessionChecked && (
+          // (userData.id ? (
           <UserContext.Provider value={[userData, setUserData]}>
             <label>Signed in as {userData.username} (but not really, yet)</label>
             {routes}
           </UserContext.Provider>
-        ) : (
-          <label>Not signed in</label>
-        ))}
+        )
+        // ) : (
+        // <label>Not signed in</label>
+        // ))
+      }
     </div>
   );
 }
