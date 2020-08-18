@@ -20,9 +20,16 @@ export default () => {
   return (
     <section className="nav-background">
       <div className="nav">
-        <label>Meal2Plan</label>
-        <Link to="/test">Test</Link>
-        <Link to="/profile">{userData.username}</Link>
+        <div>
+          <label>Meal2Plan</label>
+          <Link to="/test">Test</Link>
+        </div>
+        <div>
+          <Link to="/cart">Cart</Link>
+          <Link to="/profile">
+            {userData.first_name} {userData.last_name}
+          </Link>
+        </div>
       </div>
     </section>
   );
