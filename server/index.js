@@ -33,6 +33,8 @@ app.use(
 app.use(express.json());
 
 //auth endpoints
+//check user
+app.get("/auth/me", authCtrl.user);
 
 // TEMPORARY TESTING ENPOINTS
 app.get("/test/spoonacular", testCtrl.testQuery);

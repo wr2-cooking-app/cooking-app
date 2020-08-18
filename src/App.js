@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import { UserContext } from "./contexts/UserContext";
@@ -11,10 +12,7 @@ function App() {
   useEffect(() => {
     // useEffect() does not support async callbacks so we must nest it inside... ugh
     const checkSession = async () => {
-      // TODO Aaron set up endpoint
-      // const res = await Axios.get("/auth/me");
-      // dummy data for now
-      const res = { data: { id: 1, username: "Raiguard" } };
+      const res = await Axios.get("/auth/me");
       if (res.data) {
         setUserData(res.data);
       }
