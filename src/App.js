@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Axios from 'axios';
 import "./App.scss";
 import { setUser } from "./redux/reducer";
 import routes from "./routes";
@@ -15,8 +16,7 @@ function App() {
     const checkSession = async () => {
       // TODO Aaron set up endpoint
       // const res = await Axios.get("/auth/me");
-      // dummy data for now
-      const res = { data: { id: 1, username: "Raiguard" } };
+      const res = await Axios.get("/auth/me");
       if (res.data) {
         dispatch(setUser(res.data));
       }
