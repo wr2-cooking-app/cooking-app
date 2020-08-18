@@ -6,18 +6,15 @@ import store from './redux/store';
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <HashRouter>
   <React.StrictMode>
     <Provider store={store}>
       <HashRouter>
         <App />
       </HashRouter>
     </Provider>
-  </React.StrictMode>
-  </HashRouter>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
