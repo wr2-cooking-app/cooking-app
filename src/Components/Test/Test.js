@@ -1,8 +1,10 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Test.scss";
+import { UserContext } from "../../contexts/UserContext";
 
 export default () => {
+  const [userData] = useContext(UserContext);
   const [recipes, setRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -13,6 +15,7 @@ export default () => {
 
   return (
     <div className="test-comp">
+      <label>{userData.username}</label>
       <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       <button onClick={search}>Search</button>
       {recipes.map((recipe, i) => (
