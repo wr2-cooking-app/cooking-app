@@ -12,10 +12,10 @@ function App() {
   useEffect(() => {
     // useEffect() does not support async callbacks so we must nest it inside... ugh
     const checkSession = async () => {
-      const res = await Axios.get("/auth/me");
-      if (res.data) {
+      try {
+        const res = await Axios.get("/auth/me");
         setUserData(res.data);
-      }
+      } catch {}
       setSessionChecked(true);
     };
     checkSession();
