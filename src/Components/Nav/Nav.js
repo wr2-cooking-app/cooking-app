@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Nav.scss";
 
 export default () => {
   const [userData] = useContext(UserContext);
 
-  // don't show on authentication page
+  const history = useHistory();
   const location = useLocation();
+
+  // kick back to auth page if not signed in
+  useEffect(() => {
+    if (!userData.id) history.push("/");
+  }, [history, location, userData.id]);
+
+  // don't show if on auth page
   if (location.pathname === "/") return null;
 
   return (
