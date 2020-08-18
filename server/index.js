@@ -35,6 +35,9 @@ app.use(express.json());
 //auth endpoints
 //check user
 app.get("/auth/me", authCtrl.user);
+app.post("/auth/register", authCtrl.register);
+app.post("/auth/login", authCtrl.login);
+app.get("/auth/logout", authCtrl.logout);
 
 // TEMPORARY TESTING ENPOINTS
 app.get("/test/spoonacular", testCtrl.testQuery);
