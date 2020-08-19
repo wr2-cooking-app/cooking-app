@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.scss";
+import Nav from "./Components/Nav/Nav";
 import { UserContext } from "./contexts/UserContext";
 import routes from "./routes";
 
@@ -23,15 +24,18 @@ function App() {
 
   return (
     <div className="App">
-      {sessionChecked &&
-        (userData.id ? (
+      {
+        sessionChecked && (
+          // (userData.id ? (
           <UserContext.Provider value={[userData, setUserData]}>
-            <label>Signed in as {userData.username} (but not really, yet)</label>
+            <Nav />
             {routes}
           </UserContext.Provider>
-        ) : (
-          <label>Not signed in</label>
-        ))}
+        )
+        // ) : (
+        // <label>Not signed in</label>
+        // ))
+      }
     </div>
   );
 }
