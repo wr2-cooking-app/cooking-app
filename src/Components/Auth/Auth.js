@@ -19,7 +19,7 @@ function Auth(props) {
       .post("/auth/register", { email, password, first_name, last_name, profile_picture })
       .then((res) => {
         setUserData(res.data);
-        history.push("/test");
+        history.push("/search");
       })
       .catch((err) => console.log(err));
   };
@@ -29,7 +29,7 @@ function Auth(props) {
       .post("/auth/login", { email, password })
       .then((res) => {
         setUserData(res.data);
-        history.push("/test");
+        history.push("/search");
       })
       .catch((err) => console.log(err));
   };

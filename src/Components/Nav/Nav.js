@@ -22,7 +22,7 @@ export default () => {
       <div className="nav">
         <div>
           <label>Meal2Plan</label>
-          <Link to="/test">Test</Link>
+          <Link to="/search">Search</Link>
         </div>
         <div>
           <Link to="/cart">Cart</Link>
