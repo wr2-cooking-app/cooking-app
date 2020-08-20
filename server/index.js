@@ -3,7 +3,6 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const authCtrl = require("./controllers/authCtrl");
-const testCtrl = require("./controllers/spoonacularTestCtrl");
 const recipeCtrl = require("./controllers/recipeCtrl");
 
 const app = express();
@@ -39,9 +38,6 @@ app.get("/auth/me", authCtrl.user);
 app.post("/auth/register", authCtrl.register);
 app.post("/auth/login", authCtrl.login);
 app.get("/auth/logout", authCtrl.logout);
-
-// TEMPORARY TESTING ENPOINTS
-app.get("/test/spoonacular", testCtrl.testQuery);
 
 // recipe endpoints
 app.get("/api/recipes", recipeCtrl.search);
