@@ -44,7 +44,7 @@ app.get("/auth/logout", authCtrl.logout);
 app.get("/test/spoonacular", testCtrl.testQuery);
 
 // recipe endpoints
-app.get("/api/recipe/search", recipeCtrl.search);
+app.get("/api/recipes", recipeCtrl.search);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);

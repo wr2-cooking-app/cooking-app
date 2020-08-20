@@ -19,7 +19,7 @@ export default () => {
   const [apiRes, setApiRes] = useState({ results: [] });
 
   const performSearch = async () => {
-    const res = await Axios.get("/api/recipe/search", {
+    const res = await Axios.get("/api/recipes", {
       params: {
         title: titleQuery
       }
