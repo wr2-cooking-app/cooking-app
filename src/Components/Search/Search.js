@@ -5,7 +5,7 @@ import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import "./Search.scss";
 
 const RecipeSearchResult = (props) => {
-  const { recipeId, setRecipeId } = useContext(RecipeIdContext);
+  const { setRecipeId } = useContext(RecipeIdContext);
   const { baseUri, data } = props;
   const { image, title, id } = data;
   return (
@@ -24,8 +24,6 @@ export default () => {
   const [titleQuery, setTitleQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
-
-  const { recipeId, setRecipeId } = useContext(RecipeIdContext);
 
   const performSearch = async () => {
     const res = await Axios.get("/api/recipes", {

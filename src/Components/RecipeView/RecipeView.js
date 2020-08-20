@@ -28,7 +28,7 @@ function RecipeView() {
           <section className="recipe-directions">
             <img className="recipe-pic" src={recipe[0].image} alt="food" />
             {recipe[0].extendedIngredients.map((amount, i) => (
-              <section>
+              <section key={i}>
                 <span className="ingredient-amount">{amount.measures.us.amount}</span>
                 <span className="ingredient-measurement">{amount.measures.us.unitShort}</span>
                 <span className="ingredient-name">{amount.name}</span>
@@ -37,7 +37,7 @@ function RecipeView() {
           </section>
           <section className="recipe-instructions">
             {recipe[0].analyzedInstructions[0].steps.map((steps, i) => (
-              <section>
+              <section key={i}>
                 <span>{steps.number}</span>
                 <span className="recipe-instructions-step">{steps.step}</span>
               </section>
