@@ -10,7 +10,7 @@ module.exports = {
       params: {
         apiKey: SPOONACULAR_API_KEY,
         query: req.query.title,
-        number: 10,
+        number: 9,
         instructionsRequired: true
       }
     });
