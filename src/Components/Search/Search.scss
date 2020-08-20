@@ -7,13 +7,12 @@
   padding: 0.25rem;
 }
 
+.search .textfield-container {
+  align-items: center;
+}
+
 .search-result img {
   width: 3rem;
   height: 3rem;
   margin-right: 0.5rem;
-}
-
-.search .selector {
-  width: 50rem;
-  flex-direction: column;
 }
