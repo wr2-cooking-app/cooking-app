@@ -1,0 +1,46 @@
+$dropdown-height: 1.7rem;
+
+.dropdown {
+  flex-direction: column;
+  // position: relative;
+  height: $dropdown-height;
+}
+
+.dropdown .container {
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown .container input {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  margin-left: 0.25rem;
+  height: $dropdown-height;
+}
+
+.dropdown .container input:focus {
+  outline: none;
+}
+
+.dropdown .items-container {
+  position: relative;
+  top: 0.5rem;
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dropdown .item {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.dropdown .item:hover {
+  background-color: rgba(96, 126, 214, 0.349);
+}
