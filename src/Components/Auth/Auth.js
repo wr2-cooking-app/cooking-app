@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Auth.scss";
@@ -14,6 +14,11 @@ function Auth(props) {
   let [first_name, setFirstName] = useState("");
   let [last_name, setLastName] = useState("");
   let [profile_picture, setProfilePicture] = useState("");
+
+  // forward to search page if already signed in
+  useEffect(() => {
+    if (userData.id) history.push("/search");
+  }, [history, userData]);
 
   const handleRegister = () => {
     axios
