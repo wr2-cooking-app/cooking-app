@@ -27,8 +27,8 @@ function App() {
   return (
     <div className="App">
       {sessionChecked && (
-        <UserContext.Provider value={[userData, setUserData]}>
-          <RecipeIdContext.Provider value={[recipeId, setRecipeId]}>
+        <UserContext.Provider value={{ userData, setUserData }}>
+          <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
             <Nav />
             {routes}
           </RecipeIdContext.Provider>
