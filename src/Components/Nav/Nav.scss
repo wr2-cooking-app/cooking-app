@@ -1,11 +1,21 @@
 .nav-background {
   background-color: #3e4a61;
   padding: 0.5rem;
-  width: 100%;
+  min-width: 100%;
+  justify-content: center;
+}
+
+.nav {
+  justify-content: space-between;
+  width: 80%;
 }
 
 .nav label {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+}
+
+.nav a {
+  margin: 0 0.5rem;
 }
 
 .nav a:hover {
