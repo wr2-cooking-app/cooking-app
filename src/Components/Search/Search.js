@@ -31,7 +31,7 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
-        <button onClick={performSearch}>Search</button>
+        <button className="search-button" onClick={performSearch}>Search</button>
       </div>
       <div className="search-result-box">
       {apiRes.results.map((result, i) => (
