@@ -19,7 +19,7 @@ function Auth(props) {
       .post("/auth/register", { email, password, first_name, last_name, profile_picture })
       .then((res) => {
         setUserData(res.data);
-        history.push("/search");
+        history.push("/test");
       })
       .catch((err) => console.log(err));
   };
@@ -29,67 +29,74 @@ function Auth(props) {
       .post("/auth/login", { email, password })
       .then((res) => {
         setUserData(res.data);
-        history.push("/search");
+        history.push("/test");
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div>
-      {registering ? (
-        <>
-          <h3>Login To Your Profile:</h3>
-          <div>
-            <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <input
-              value={password}
-              placeholder="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-        </>
-      ) : (
-        <h3>Register:</h3>
-      )}
-      {!registering ? (
-        <>
-          <div>
-            <div>
-              {profile_picture ? (
-                <img src={profile_picture} alt={first_name} />
-              ) : (
-                <img src={"https://image.flaticon.com/icons/svg/2948/2948035.svg"} alt={"default"} />
-              )}
+    <div className="auth-box">
+      {/* <div className="logo">
+                <img  src={"https://cdn.discordapp.com/attachments/743548935607418881/745773571153985736/LogoHeader.png"} />
+            </div> */}
+      <div className="box">
+        {registering ? (
+          <>
+            <h3>Login To Your Profile:</h3>
+            <div className="login-box">
+              <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+              <input
+                value={password}
+                placeholder="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <input value={first_name} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
-            <input value={last_name} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
-            <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <input
-              value={password}
-              placeholder="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <input
-              value={profile_picture}
-              placeholder="Profile Picture"
-              onChange={(e) => setProfilePicture(e.target.value)}
-            />
-          </div>
-          <button onClick={handleRegister}>Register</button>
-          <p>
-            Already Registered? <button onClick={() => setRegistering(!registering)}>Login Here</button>
-          </p>
-        </>
-      ) : (
-        <>
-          <button onClick={handleLogin}>Login</button>
-          <p>
-            Not Registered? <button onClick={() => setRegistering(!registering)}>Register Here</button>
-          </p>
-        </>
-      )}
+          </>
+        ) : (
+          <h3 className="register"> Register: </h3>
+        )}
+        {!registering ? (
+          <>
+            <div className="register-box">
+              {profile_picture ? (
+                <img className="profile-photo" src={profile_picture} alt={first_name} />
+              ) : (
+                <img
+                  className="profile-photo"
+                  src={"https://image.flaticon.com/icons/svg/2948/2948035.svg"}
+                  alt={"default"}
+                />
+              )}
+              <input value={first_name} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+              <input value={last_name} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+              <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+              <input
+                value={password}
+                placeholder="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                value={profile_picture}
+                placeholder="Profile Picture"
+                onChange={(e) => setProfilePicture(e.target.value)}
+              />
+              <button onClick={handleRegister}>Register</button>
+              <p style={{ color: "black" }}>
+                Already Registered? <button onClick={() => setRegistering(!registering)}>Login Here</button>
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <button onClick={handleLogin}>Login</button>
+            <p>
+              Not Registered? <button onClick={() => setRegistering(!registering)}>Register Here</button>
+            </p>
+          </>
+        )}
+      </div>
     </div>
   );
 }
