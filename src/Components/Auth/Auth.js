@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Auth.scss";
 
 function Auth(props) {
-  const [userData, setUserData] = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
   const [registering, setRegistering] = useState(false);
 

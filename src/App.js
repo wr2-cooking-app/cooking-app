@@ -27,7 +27,7 @@ function App() {
       {
         sessionChecked && (
           // (userData.id ? (
-          <UserContext.Provider value={[userData, setUserData]}>
+          <UserContext.Provider value={{ userData, setUserData }}>
             <Nav />
             {routes}
           </UserContext.Provider>
