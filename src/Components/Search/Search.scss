@@ -1,13 +1,17 @@
-.test-comp {
+.search {
   flex-direction: column;
 }
 
-.recipe-test {
+.search-result {
   align-items: center;
   padding: 0.25rem;
 }
 
-.recipe-test img {
+.search .textfield-container {
+  align-items: center;
+}
+
+.search-result img {
   width: 3rem;
   height: 3rem;
   margin-right: 0.5rem;
