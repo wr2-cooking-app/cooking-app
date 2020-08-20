@@ -3,23 +3,18 @@ import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import Axios from "axios";
 import "./RecipeView.scss";
 
-function RecipeView(props) {
+function RecipeView() {
   const [recipe, setRecipe] = useState([{}]);
-  const [recipeId, setRecipeId] = useContext(RecipeIdContext);
+  const { recipeId } = useContext(RecipeIdContext);
 
   //set recipe information to display
   useEffect(() => {
-    displayRecipe();
-  }, [recipeId]);
-
-  //retrieve recipe data from API
-  const displayRecipe = () => {
     Axios.get(`/api/recipe/${recipeId}`)
       .then((res) => {
         setRecipe(res.data);
       })
       .catch((err) => console.log(err));
-  };
+  }, [recipeId]);
 
   return (
     <div className="recipe-view-container">
@@ -34,12 +29,8 @@ function RecipeView(props) {
             <img className="recipe-pic" src={recipe[0].image} alt="food" />
             {recipe[0].extendedIngredients.map((amount, i) => (
               <section>
-                <span className="ingredient-amount">
-                  {amount.measures.us.amount}
-                </span>
-                <span className="ingredient-measurement">
-                  {amount.measures.us.unitShort}
-                </span>
+                <span className="ingredient-amount">{amount.measures.us.amount}</span>
+                <span className="ingredient-measurement">{amount.measures.us.unitShort}</span>
                 <span className="ingredient-name">{amount.name}</span>
               </section>
             ))}
