@@ -42,8 +42,8 @@ function Auth(props) {
             </div> */}
       <div className="box">
         {registering ? (
-          <>
-            <h3>Login To Your Profile:</h3>
+          <div className="login-box">
+            <h3 style={{ color: "black", textAlign: "center" }}>Login To Your Profile:</h3>
             <div className="login-box">
               <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
               <input
@@ -53,9 +53,9 @@ function Auth(props) {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-          </>
+          </div>
         ) : (
-          <h3 className="register"> Register: </h3>
+          <h3> Register: </h3>
         )}
         {!registering ? (
           <>
@@ -90,12 +90,12 @@ function Auth(props) {
             </div>
           </>
         ) : (
-          <>
+          <div className="login-box">
             <button onClick={handleLogin}>Login</button>
-            <p>
+            <p style={{ color: "black" }}>
               Not Registered? <button onClick={() => setRegistering(!registering)}>Register Here</button>
             </p>
-          </>
+          </div>
         )}
       </div>
     </div>
