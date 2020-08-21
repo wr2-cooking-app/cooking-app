@@ -19,8 +19,8 @@ export default (props) => {
       if (i > -1) {
         let updated = selectedIndices;
         updated[i] = !updated[i];
-        setSelectedIndices([...updated]);
         setLabel(selectedIndices.filter((value) => value).length + " selected");
+        setSelectedIndices([...updated]);
       } else {
         setLabel("");
         setSelectedIndices(items.map(() => false));
@@ -47,7 +47,7 @@ export default (props) => {
             return (
               <div key={i} className="item" onClick={() => handleItemSelect(i)}>
                 {isMulti && <input type="checkbox" checked={selectedIndices[i]} readOnly />}
-                <label>{item.label}</label>
+                <label>{item.label || item.value}</label>
               </div>
             );
           })}

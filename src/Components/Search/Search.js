@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import RecipeView from "../RecipeView/RecipeView";
 import Dropdown from "../Shared/Dropdown/Dropdown";
+import dropdownOptions from "./dropdownOptions";
 import "./Search.scss";
 
 const RecipeSearchResult = (props) => {
@@ -21,38 +22,10 @@ const RecipeSearchResult = (props) => {
   );
 };
 
-const cuisineOptions = [
-  { label: "African", value: "African" },
-  { label: "American", value: "American" },
-  { label: "British", value: "British" },
-  { label: "Cajun", value: "Cajun" },
-  { label: "Carribean", value: "Carribean" },
-  { label: "Chinese", value: "Chinese" },
-  { label: "Eastern European", value: "Eastern European" },
-  { label: "European", value: "European" },
-  { label: "French", value: "French" },
-  { label: "German", value: "German" },
-  { label: "Greek", value: "Greek" },
-  { label: "Indian", value: "Indian" },
-  { label: "Irish", value: "Irish" },
-  { label: "Italian", value: "Italian" },
-  { label: "Japanese", value: "Japanese" },
-  { label: "Jewish", value: "Jewish" },
-  { label: "Korean", value: "Korean" },
-  { label: "Latin American", value: "Latin American" },
-  { label: "Mediterranean", value: "Mediterranean" },
-  { label: "Mexican", value: "Mexican" },
-  { label: "Middle Eastern", value: "Middle Eastern" },
-  { label: "Nordic", value: "Nordic" },
-  { label: "Southern", value: "Southern" },
-  { label: "Spanish", value: "Spanish" },
-  { label: "Thai", value: "Thai" },
-  { label: "Vietnamese", value: "Vietnamese" }
-];
-
 export default () => {
   const [titleQuery, setTitleQuery] = useState("");
-  const [cuisineQuery, setCuisineQuery] = useState("");
+  const [cuisineQuery, setCuisineQuery] = useState([]);
+  const [dietQuery, setDietQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
 
@@ -60,7 +33,8 @@ export default () => {
     const res = await Axios.get("/api/recipes", {
       params: {
         title: titleQuery,
-        cuisine: cuisineQuery || undefined
+        cuisine: cuisineQuery.length > 0 ? cuisineQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
+        diet: dietQuery || undefined
       }
     });
     setApiRes(res.data);
@@ -70,7 +44,8 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
-        <Dropdown items={cuisineOptions} onSelect={setCuisineQuery} placeholder="Cuisine" />
+        <Dropdown items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
+        <Dropdown items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
         <button className="search-button" onClick={performSearch}>
           Search
         </button>
