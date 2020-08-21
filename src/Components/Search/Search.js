@@ -1,9 +1,9 @@
 import Axios from "axios";
-import React, { useState, useContext } from "react";
-import RecipeView from "../RecipeView/RecipeView";
+import React, { useContext, useState } from "react";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
-import "./Search.scss";
+import RecipeView from "../RecipeView/RecipeView";
 import Dropdown from "../Shared/Dropdown/Dropdown";
+import "./Search.scss";
 
 const RecipeSearchResult = (props) => {
   const { setRecipeId } = useContext(RecipeIdContext);
@@ -52,13 +52,15 @@ const cuisineOptions = [
 
 export default () => {
   const [titleQuery, setTitleQuery] = useState("");
+  const [cuisineQuery, setCuisineQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
 
   const performSearch = async () => {
     const res = await Axios.get("/api/recipes", {
       params: {
-        title: titleQuery
+        title: titleQuery,
+        cuisine: cuisineQuery || undefined
       }
     });
     setApiRes(res.data);
@@ -68,7 +70,7 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
-        <Dropdown items={cuisineOptions} onSelect={(value) => console.log(value)} placeholder="Cuisine" isMulti />
+        <Dropdown items={cuisineOptions} onSelect={setCuisineQuery} placeholder="Cuisine" />
         <button className="search-button" onClick={performSearch}>
           Search
         </button>
