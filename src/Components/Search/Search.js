@@ -68,12 +68,7 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
-        <Dropdown
-          items={cuisineOptions}
-          isMulti={true}
-          onSelect={(value) => console.log("Selected " + value)}
-          placeholder="Cuisine"
-        />
+        <Dropdown items={cuisineOptions} onSelect={(value) => console.log("Selected " + value)} placeholder="Cuisine" />
         <button className="search-button" onClick={performSearch}>
           Search
         </button>

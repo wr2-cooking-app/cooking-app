@@ -1,36 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Dropdown.scss";
 
 export default (props) => {
   const { isMulti, items, onSelect, placeholder } = props;
 
   const [isOpened, setIsOpened] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
   const [label, setLabel] = useState("");
 
-  useEffect(() => {
-    const item = items[selectedIndex];
+  // for multi
+  const [selectedIndices, setSelectedIndices] = useState(() => items.map(() => false));
+
+  const handleItemSelect = (i) => {
+    // retrieve new value
+    const item = items[i];
     const newValue = item ? item.value || item.label : "";
-    setLabel(newValue);
-    onSelect && onSelect(selectedIndex, newValue);
-    setIsOpened(false);
-  }, [items, onSelect, selectedIndex]);
+    // set label and opened state
+    if (isMulti) {
+      if (i > -1) {
+        let updated = selectedIndices;
+        updated[i] = !updated[i];
+        setSelectedIndices([...updated]);
+        setLabel(selectedIndices.filter((value) => value).length + " selected");
+      } else {
+        setLabel("");
+        setSelectedIndices(items.map(() => false));
+      }
+      onSelect && onSelect(i, newValue, selectedIndices);
+    } else {
+      setLabel(newValue);
+      setIsOpened(false);
+      onSelect && onSelect(i, newValue);
+    }
+  };
 
   return (
     <div className="dropdown">
       <div className="container">
         <input placeholder={placeholder} value={label} readOnly={true} onClick={() => setIsOpened(!isOpened)} />
+        {label && <label onClick={() => handleItemSelect(-1)}>X</label>}
       </div>
       {isOpened && (
         <div className="items-container">
-          <label className="item" onClick={() => setSelectedIndex(-1)}>
-            {placeholder}
-          </label>
-          {items.map((item, i) => (
-            <label key={i} className="item" onClick={() => setSelectedIndex(i)}>
-              {item.label}
-            </label>
-          ))}
+          {items.map((item, i) => {
+            return (
+              <div key={i} className="item" onClick={() => handleItemSelect(i)}>
+                {isMulti && <input type="checkbox" checked={selectedIndices[i]} readOnly />}
+                <label>{item.label}</label>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
