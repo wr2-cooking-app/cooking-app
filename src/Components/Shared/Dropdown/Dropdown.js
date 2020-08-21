@@ -25,11 +25,13 @@ export default (props) => {
         setLabel("");
         setSelectedIndices(items.map(() => false));
       }
-      onSelect && onSelect(i, newValue, selectedIndices);
+      let output = [];
+      items.forEach((item, i) => selectedIndices[i] && output.push(item.value || item.label));
+      onSelect && onSelect(output);
     } else {
       setLabel(newValue);
       setIsOpened(false);
-      onSelect && onSelect(i, newValue);
+      onSelect && onSelect(newValue);
     }
   };
 
