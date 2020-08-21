@@ -3,23 +3,18 @@ import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import Axios from "axios";
 import "./RecipeView.scss";
 
-function RecipeView(props) {
+function RecipeView() {
   const [recipe, setRecipe] = useState([{}]);
-  const [recipeId, setRecipeId] = useContext(RecipeIdContext);
+  const { recipeId } = useContext(RecipeIdContext);
 
   //set recipe information to display
   useEffect(() => {
-    displayRecipe();
-  }, [recipeId]);
-
-  //retrieve recipe data from API
-  const displayRecipe = () => {
     Axios.get(`/api/recipe/${recipeId}`)
       .then((res) => {
         setRecipe(res.data);
       })
       .catch((err) => console.log(err));
-  };
+  }, [recipeId]);
 
   return (
     <div className="recipe-display">

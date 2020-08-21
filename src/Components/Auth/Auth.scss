@@ -1,13 +1,12 @@
-.auth-box { 
-    padding: 20%;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("https://images-na.ssl-images-amazon.com/images/I/71VgmMSxYWL._SL1100_.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-
+.auth-box {
+  padding: 20%;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images-na.ssl-images-amazon.com/images/I/71VgmMSxYWL._SL1100_.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .box {
@@ -20,39 +19,39 @@
     height: 42vh;
 } 
 
-.profile-photo {
-    width: 20%;
+.auth-box .profile-photo {
+  width: 20%;
 }
 
-.register-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 4rem;
-    width: 35vw;
-    height: 40vh;
-    padding: 3rem;
-} 
-
-.login-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 4rem;
-    width: 30vw;
-    height: 16vh;
+.auth-box .register-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 4rem;
+  width: 35vw;
+  height: 40vh;
+  padding: 3rem;
 }
 
-.register {
-    text-align: center;
-    align-items: center;
-    font-style: oblique;
+.auth-box .login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 4rem;
+  width: 30vw;
+  height: 16vh;
 }
 
-input {
-    width:15vw;
-    height:2vh;
-    margin: 8px;
+.auth-box .register {
+  text-align: center;
+  align-items: center;
+  font-style: oblique;
+}
+
+.auth-box input {
+  width: 15vw;
+  height: 2vh;
+  margin: 8px;
 }
