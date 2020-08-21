@@ -11,7 +11,7 @@ const RecipeSearchResult = (props) => {
   return (
     <div className="search-result">
       <div><img src={`${baseUri}${image}`} alt="Recipe"  onClick={() => setRecipeId(id)} /></div>
-      <div><label style= {{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '10px'}}>{title}</label></div>
+      <div><label style={{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '10px'}}>{title}</label></div>
     </div>
   );
 };
@@ -39,13 +39,15 @@ export default () => {
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
         <button className="search-button" onClick={performSearch}>Search</button>
       </div>
+        <div className="search-box">
       <div className="search-result-box">
       {apiRes.results.map((result, i) => (
-        <RecipeSearchResult className="recipe-result" key={i} data={result} baseUri={apiRes.baseUri} />
+        <RecipeSearchResult className="search-result-box" key={i} data={result} baseUri={apiRes.baseUri} />
       ))}
+        </div>
       </div>
       <div>
-        <RecipeView />
+        <RecipeView  className="recipe-view"/>
       </div>
     </section>
   );
