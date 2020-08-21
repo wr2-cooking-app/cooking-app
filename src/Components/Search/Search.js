@@ -12,8 +12,8 @@ const RecipeSearchResult = (props) => {
   const { image, title, id } = data;
   return (
     <div className="search-result">
-      <div><img src={`${baseUri}${image}`} alt="Recipe" /></div>
-      <div><label style= {{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '12px'}}>{title}</label></div>
+      <div><img src={`${baseUri}${image}`} alt="Recipe"  onClick={() => setRecipeId(id)} /></div>
+      <div><label style={{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '10px'}}>{title}</label></div>
     </div>
   );
 };
@@ -60,13 +60,15 @@ export default () => {
         />
         <Dropdown items={dropdownOptions.mealType} onSelect={setMealTypeQuery} placeholder="Meal type" />
       </div>
+        <div className="search-box">
       <div className="search-result-box">
-        {apiRes.results.map((result, i) => (
-          <RecipeSearchResult className="recipe-result" key={i} data={result} baseUri={apiRes.baseUri} />
-        ))}
+      {apiRes.results.map((result, i) => (
+        <RecipeSearchResult className="search-result-box" key={i} data={result} baseUri={apiRes.baseUri} />
+      ))}
+        </div>
       </div>
       <div>
-        <RecipeView />
+        <RecipeView  className="recipe-view"/>
       </div>
     </section>
   );
