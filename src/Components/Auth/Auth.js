@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Auth.scss";
 
 function Auth(props) {
-  const [userData, setUserData] = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
   const [registering, setRegistering] = useState(false);
 
@@ -14,6 +14,11 @@ function Auth(props) {
   let [first_name, setFirstName] = useState("");
   let [last_name, setLastName] = useState("");
   let [profile_picture, setProfilePicture] = useState("");
+
+  // forward to search page if already signed in
+  useEffect(() => {
+    if (userData.id) history.push("/search");
+  }, [history, userData]);
 
   const handleRegister = () => {
     axios
@@ -42,8 +47,8 @@ function Auth(props) {
             </div> */}
       <div className="box">
         {registering ? (
-          <>
-            <h3>Login To Your Profile:</h3>
+          <div className="login-box">
+            <h3 style={{ color: "black", textAlign: "center" }}>Login To Your Profile:</h3>
             <div className="login-box">
               <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
               <input
@@ -53,9 +58,9 @@ function Auth(props) {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-          </>
+          </div>
         ) : (
-          <h3 className="register"> Register: </h3>
+          <h3> Register: </h3>
         )}
         {!registering ? (
           <>
@@ -90,12 +95,12 @@ function Auth(props) {
             </div>
           </>
         ) : (
-          <>
+          <div className="login-box">
             <button onClick={handleLogin}>Login</button>
-            <p>
+            <p style={{ color: "black" }}>
               Not Registered? <button onClick={() => setRegistering(!registering)}>Register Here</button>
             </p>
-          </>
+          </div>
         )}
       </div>
     </div>
