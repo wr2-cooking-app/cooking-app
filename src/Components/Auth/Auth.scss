@@ -5,7 +5,6 @@
     background-image: url("https://images-na.ssl-images-amazon.com/images/I/71VgmMSxYWL._SL1100_.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    position:absolute;
     display: flex;
     flex-direction: column;
 
@@ -14,15 +13,15 @@
 .box {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     background-color: white;
     box-shadow:0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     width: 30vw;
     height: 40vh;
-    position: relative;
 } 
 
 .profile-photo {
-    width: 30%;
+    width: 20%;
 }
 
 .register-box {
@@ -30,10 +29,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    line-height: 5rem;
+    line-height: 4rem;
     width: 35vw;
     height: 40vh;
+    padding: 3rem;
 } 
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 4rem;
+    width: 30vw;
+    height: 16vh;
+}
 
 .register {
     text-align: center;
@@ -45,10 +55,4 @@ input {
     width:15vw;
     height:2vh;
     margin: 8px;
-}
-
-.logo {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
 }
