@@ -12,7 +12,7 @@ const RecipeSearchResult = (props) => {
   return (
     <div className="search-result">
       <div>
-        <img src={`${baseUri}${image}`} alt="Recipe" />
+        <img src={`${baseUri}${image}`} alt="Recipe" onClick={() => setRecipeId(id)} />
       </div>
       <div>
         <label style={{ textAlign: "center", fontFamily: "cursive", color: "black", fontSize: "10px" }}>{title}</label>
