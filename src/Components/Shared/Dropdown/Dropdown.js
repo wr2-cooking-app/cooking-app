@@ -14,19 +14,20 @@ export default (props) => {
     // retrieve new value
     const item = items[i];
     const newValue = item ? item.value || item.label : "";
+    let updated = selectedIndices;
     // set label and opened state
     if (isMulti) {
       if (i > -1) {
-        let updated = selectedIndices;
         updated[i] = !updated[i];
-        setSelectedIndices([...updated]);
         setLabel(selectedIndices.filter((value) => value).length + " selected");
+        setSelectedIndices([...updated]);
       } else {
         setLabel("");
-        setSelectedIndices(items.map(() => false));
+        updated = items.map(() => false);
+        setSelectedIndices([...updated]);
       }
       let output = [];
-      items.forEach((item, i) => selectedIndices[i] && output.push(item.value || item.label));
+      items.forEach((item, i) => updated[i] && output.push(item.value || item.label));
       onSelect && onSelect(output);
     } else {
       setLabel(newValue);
@@ -47,7 +48,7 @@ export default (props) => {
             return (
               <div key={i} className="item" onClick={() => handleItemSelect(i)}>
                 {isMulti && <input type="checkbox" checked={selectedIndices[i]} readOnly />}
-                <label>{item.label}</label>
+                <label>{item.label || item.value}</label>
               </div>
             );
           })}
