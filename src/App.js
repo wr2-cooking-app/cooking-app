@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Nav from "./Components/Nav/Nav";
 import { UserContext } from "./contexts/UserContext";
+import { RecipeIdContext } from "./contexts/RecipeIdContext";
 import routes from "./routes";
 
 function App() {
   const [sessionChecked, setSessionChecked] = useState(false);
   const [userData, setUserData] = useState({});
+  const [recipeId, setRecipeId] = useState(null);
 
   // check session for signed in status
   useEffect(() => {
@@ -24,18 +26,14 @@ function App() {
 
   return (
     <div className="App">
-      {
-        sessionChecked && (
-          // (userData.id ? (
-          <UserContext.Provider value={[userData, setUserData]}>
+      {sessionChecked && (
+        <UserContext.Provider value={{ userData, setUserData }}>
+          <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
             <Nav />
             {routes}
-          </UserContext.Provider>
-        )
-        // ) : (
-        // <label>Not signed in</label>
-        // ))
-      }
+          </RecipeIdContext.Provider>
+        </UserContext.Provider>
+      )}
     </div>
   );
 }
