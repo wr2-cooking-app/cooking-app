@@ -4,7 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import "./Nav.scss";
 
 export default () => {
-  const [userData] = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   const history = useHistory();
   const location = useLocation();
