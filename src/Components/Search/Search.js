@@ -27,6 +27,7 @@ export default () => {
   const [cuisineQuery, setCuisineQuery] = useState([]);
   const [dietQuery, setDietQuery] = useState("");
   const [intolerancesQuery, setIntolerancesQuery] = useState([]);
+  const [mealTypeQuery, setMealTypeQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
 
@@ -37,7 +38,8 @@ export default () => {
         cuisine: cuisineQuery.length > 0 ? cuisineQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
         diet: dietQuery || undefined,
         intolerances:
-          intolerancesQuery.length > 0 ? intolerancesQuery.reduce((acc, value) => `${acc},${value}`) : undefined
+          intolerancesQuery.length > 0 ? intolerancesQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
+        mealType: mealTypeQuery || undefined
       }
     });
     setApiRes(res.data);
@@ -47,6 +49,11 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
+        <button className="search-button" onClick={performSearch}>
+          Search
+        </button>
+      </div>
+      <div>
         <Dropdown items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
         <Dropdown items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
         <Dropdown
@@ -55,9 +62,7 @@ export default () => {
           placeholder="Intolerances"
           isMulti
         />
-        <button className="search-button" onClick={performSearch}>
-          Search
-        </button>
+        <Dropdown items={dropdownOptions.mealType} onSelect={setMealTypeQuery} placeholder="Meal type" />
       </div>
       <div className="search-result-box">
         {apiRes.results.map((result, i) => (

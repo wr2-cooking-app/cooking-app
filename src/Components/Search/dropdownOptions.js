@@ -52,5 +52,19 @@ export default {
     { value: "Sulfite" },
     { value: "Tree Nut" },
     { value: "Wheat" }
+  ],
+  mealType: [
+    { label: "Appetizer", value: "appetizer" },
+    { label: "Beverage", value: "beverage" },
+    { label: "Bread", value: "bread" },
+    { label: "Dessert", value: "dessert" },
+    { label: "Drink", value: "drink" },
+    { label: "Finger food", value: "fingerfood" },
+    { label: "Main course", value: "main course" },
+    { label: "Marinade", value: "marinade" },
+    { label: "Sauce", value: "sauce" },
+    { label: "Side dish", value: "side dish" },
+    { label: "Snack", value: "snack" },
+    { label: "Soup", value: "soup" }
   ]
 };
