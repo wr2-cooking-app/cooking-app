@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Auth.scss";
 
 function Auth(props) {
-  const [userData, setUserData] = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
   const [registering, setRegistering] = useState(false);
 
@@ -14,6 +14,11 @@ function Auth(props) {
   let [first_name, setFirstName] = useState("");
   let [last_name, setLastName] = useState("");
   let [profile_picture, setProfilePicture] = useState("");
+
+  // forward to search page if already signed in
+  useEffect(() => {
+    if (userData.id) history.push("/search");
+  }, [history, userData]);
 
   const handleRegister = () => {
     axios

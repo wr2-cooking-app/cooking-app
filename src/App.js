@@ -26,20 +26,14 @@ function App() {
 
   return (
     <div className="App">
-      {
-        sessionChecked && (
-          // (userData.id ? (
-          <UserContext.Provider value={[userData, setUserData]}>
-            <RecipeIdContext.Provider value={[recipeId, setRecipeId]}>
-              <Nav />
-              {routes}
-            </RecipeIdContext.Provider>
-          </UserContext.Provider>
-        )
-        // ) : (
-        // <label>Not signed in</label>
-        // ))
-      }
+      {sessionChecked && (
+        <UserContext.Provider value={{ userData, setUserData }}>
+          <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
+            <Nav />
+            {routes}
+          </RecipeIdContext.Provider>
+        </UserContext.Provider>
+      )}
     </div>
   );
 }
