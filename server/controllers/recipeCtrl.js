@@ -6,7 +6,7 @@ const recipeSearchEndpoint = "https://api.spoonacular.com/recipes/search";
 
 module.exports = {
   search: async (req, res) => {
-    const { title, cuisine, diet } = req.query;
+    const { title, cuisine, diet, intolerances } = req.query;
     console.log(req.query);
     const apiRes = await Axios.get(recipeSearchEndpoint, {
       params: {
@@ -14,7 +14,8 @@ module.exports = {
         query: title,
         cuisine: cuisine,
         diet: diet,
-        number: 9,
+        intolerances: intolerances,
+        number: 10,
         instructionsRequired: true
       }
     });

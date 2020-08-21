@@ -26,6 +26,7 @@ export default () => {
   const [titleQuery, setTitleQuery] = useState("");
   const [cuisineQuery, setCuisineQuery] = useState([]);
   const [dietQuery, setDietQuery] = useState("");
+  const [intolerancesQuery, setIntolerancesQuery] = useState([]);
 
   const [apiRes, setApiRes] = useState({ results: [] });
 
@@ -34,7 +35,9 @@ export default () => {
       params: {
         title: titleQuery,
         cuisine: cuisineQuery.length > 0 ? cuisineQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
-        diet: dietQuery || undefined
+        diet: dietQuery || undefined,
+        intolerances:
+          intolerancesQuery.length > 0 ? intolerancesQuery.reduce((acc, value) => `${acc},${value}`) : undefined
       }
     });
     setApiRes(res.data);
@@ -46,6 +49,12 @@ export default () => {
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
         <Dropdown items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
         <Dropdown items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
+        <Dropdown
+          items={dropdownOptions.intolerances}
+          onSelect={setIntolerancesQuery}
+          placeholder="Intolerances"
+          isMulti
+        />
         <button className="search-button" onClick={performSearch}>
           Search
         </button>

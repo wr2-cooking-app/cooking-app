@@ -38,5 +38,19 @@ export default {
     { value: "Paleo" },
     { value: "Primal" },
     { value: "Whole30", label: "Whole 30" }
+  ],
+  intolerances: [
+    { value: "Dairy" },
+    { value: "Egg" },
+    { value: "Gluten" },
+    { value: "Grain" },
+    { value: "Peanut" },
+    { value: "Seafood" },
+    { value: "Sesame" },
+    { value: "Shellfish" },
+    { value: "Soy" },
+    { value: "Sulfite" },
+    { value: "Tree Nut" },
+    { value: "Wheat" }
   ]
 };
