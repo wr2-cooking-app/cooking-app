@@ -21,7 +21,7 @@ function RecipeView(props) {
       .catch((err) => console.log(err));
   };
 
-  console.log(recipe)
+  // console.log(recipe)
   return (
     <div className="recipe-view-container">
       <div>
