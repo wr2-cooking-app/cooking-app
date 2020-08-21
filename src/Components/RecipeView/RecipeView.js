@@ -21,10 +21,11 @@ function RecipeView(props) {
       .catch((err) => console.log(err));
   };
 
+  console.log(recipe)
   return (
     <div className="recipe-view-container">
       <div>
-        <h1>Recipe View</h1>
+        <h1>{recipe[0].title}</h1>
       </div>
       {!recipe[0].extendedIngredients ? (
         <h1>Loading</h1>
