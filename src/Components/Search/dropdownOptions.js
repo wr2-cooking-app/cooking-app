@@ -30,13 +30,13 @@ export default {
   diet: [
     { value: "Gluten Free" },
     { value: "Ketogenic" },
-    { value: "Vegetarian" },
     { value: "Lacto-Vegetarian" },
     { value: "Ovo-Vegetarian" },
-    { value: "Vegan" },
-    { value: "Pescetarian" },
     { value: "Paleo" },
+    { value: "Pescetarian" },
     { value: "Primal" },
+    { value: "Vegan" },
+    { value: "Vegetarian" },
     { value: "Whole30", label: "Whole 30" }
   ],
   intolerances: [
