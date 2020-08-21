@@ -8,7 +8,7 @@ const RecipeSearchResult = (props) => {
   return (
     <div className="search-result">
       <div><img src={`${baseUri}${image}`} alt="Recipe" /></div>
-      <div><label style= {{textAlign: 'center', fontFamily: 'cursive', color: 'black'}}>{title}</label></div>
+      <div><label style= {{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '12px'}}>{title}</label></div>
     </div>
   );
 };
