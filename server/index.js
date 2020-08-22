@@ -43,6 +43,8 @@ app.get("/auth/logout", authCtrl.logout);
 // recipe endpoints
 app.get("/api/recipes", recipeCtrl.search);
 app.get("/api/recipe/:id", recipeCtrl.getRecipe);
+app.post("/api/add-recipe", recipeCtrl.addRecipe);
+app.delete("/api/delete/recipe/:id", recipeCtrl.deleteRecipe);
 
 // meal plan endpoints
 app.get("/api/meal-plans/:id", mealPlanCtrl.getMealPlans);

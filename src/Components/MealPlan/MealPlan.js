@@ -18,7 +18,6 @@ const getPlan = () => {
   .then(res => {
     console.log('hello2')
     setWeekArr(res.data)
-    console.log(res)
   })
   .catch(err => console.log(err))
 }
@@ -35,8 +34,8 @@ const handleDelete = (id) => {
   console.log(mealPlanId)
   return (
     <div className='meal-plan-container'>
-      {!weekArr[0] 
-      ? <p>Loading...</p>
+      {!weekArr[0]
+      ? <p>No Meals To View</p>
       : <h1>{weekArr[0].name}</h1>}
       <div>
           {/* <p>{weekArr[0].day}</p> */}
