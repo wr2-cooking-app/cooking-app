@@ -42,7 +42,7 @@ export default () => {
         <div className="nav-tabs">
           <Link to="/search"><img className='search-img' alt='search-img'src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/000/220/original/search.png"/></Link>
           <Link to="/dashboard"><img className='planner-img' alt='planner-img' src="https://www.pinclipart.com/picdir/middle/388-3886103_calendar-icon-calendar-symbol-clipart.png"/></Link>
-          <button className='profile-btn' onClick={handleToggle} ><img className='profile-img' src={userData.profile_picture} alt='profile_picture' /></button>
+          <button className='profile-btn' onClick={handleToggle} ><img className='profile-img' src={userData.profile_picture} alt={userData.first_name} /></button>
           {toggle
           ?
           <ul className="options">
