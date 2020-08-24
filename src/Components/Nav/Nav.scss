@@ -34,7 +34,7 @@
   background-position: cover;
   padding: 5px;
   border-radius: 60%;
-  border: 1px solid #7b90bb
+  border: 1px solid #7b90bb;
 }
 
 .planner-img {
@@ -44,7 +44,25 @@
   background-position: cover;
   padding: 5px;
   border-radius: 60%;
-  border: 1px solid #7b90bb
+  border: 1px solid #7b90bb;
+}
+
+.profile-img {
+  height: 6vh;
+  width: 4vw;
+  background-position: cover;
+  padding: 1px;
+  border-radius: 60%;
+  border: 1px solid #7b90bb;
+}
+
+.profile-btn {
+  height: 6vh;
+  width: 4vw;
+  background-position: cover;
+  padding: 0px;
+  border-radius: 60%;
+  border: 1px solid #7b90bb;
 }
 
 .nav label {
@@ -67,4 +85,14 @@
 .nav a:active {
   color: inherit;
   text-decoration: none;
+}
+
+.logout:hover {
+  cursor: pointer;
+  color: lightgreen;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
 }
