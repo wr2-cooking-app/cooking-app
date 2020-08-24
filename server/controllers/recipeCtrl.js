@@ -16,7 +16,7 @@ module.exports = {
         diet: diet,
         intolerances: intolerances,
         type: mealType,
-        number: 10,
+        number: 9,
         instructionsRequired: true
       }
     });

@@ -1,13 +1,50 @@
 .nav-background {
-  background-color: #3e4a61;
+  background-color: #416ec2;
   padding: 0.5rem;
   min-width: 100%;
   justify-content: center;
+  height: 12vh;
+  width: 100vw;
 }
+
 
 .nav {
   justify-content: space-between;
-  width: 80%;
+  width: 95%;
+  align-items: center;
+  display: flex;
+}
+
+.m2p-logo {
+  height: 10vh;
+  width: 15vw;
+}
+
+.nav-tabs {
+  justify-content: space-between;
+  width: 30%;
+  align-items: center;
+  display: flex;
+}
+
+.search-img {
+  height: 6vh;
+  width: 4vw;
+  background-color: white;
+  background-position: cover;
+  padding: 5px;
+  border-radius: 60%;
+  border: 1px solid #7b90bb
+}
+
+.planner-img {
+  height: 6vh;
+  width: 4vw;
+  background-color: white;
+  background-position: cover;
+  padding: 5px;
+  border-radius: 60%;
+  border: 1px solid #7b90bb
 }
 
 .nav label {
