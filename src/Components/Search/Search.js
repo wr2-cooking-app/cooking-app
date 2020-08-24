@@ -1,9 +1,10 @@
 import Axios from "axios";
-import React, { useState, useContext } from "react";
-import RecipeView from "../RecipeView/RecipeView";
+import React, { useContext, useState } from "react";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
-import "./Search.scss";
+import RecipeView from "../RecipeView/RecipeView";
 import Dropdown from "../Shared/Dropdown/Dropdown";
+import dropdownOptions from "./dropdownOptions";
+import "./Search.scss";
 
 const RecipeSearchResult = (props) => {
   const { setRecipeId } = useContext(RecipeIdContext);
@@ -11,54 +12,30 @@ const RecipeSearchResult = (props) => {
   const { image, title, id } = data;
   return (
     <div className="search-result">
-      <div>
-        <img src={`${baseUri}${image}`} alt="Recipe" onClick={() => setRecipeId(id)} />
-      </div>
-      <div>
-        <label style={{ textAlign: "center", fontFamily: "cursive", color: "black", fontSize: "10px" }}>{title}</label>
-      </div>
+      <div><img src={`${baseUri}${image}`} alt="Recipe"  onClick={() => setRecipeId(id)} /></div>
+      <div><label style={{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '8px'}}>{title}</label></div>
     </div>
   );
 };
 
-const cuisineOptions = [
-  { label: "African", value: "African" },
-  { label: "American", value: "American" },
-  { label: "British", value: "British" },
-  { label: "Cajun", value: "Cajun" },
-  { label: "Carribean", value: "Carribean" },
-  { label: "Chinese", value: "Chinese" },
-  { label: "Eastern European", value: "Eastern European" },
-  { label: "European", value: "European" },
-  { label: "French", value: "French" },
-  { label: "German", value: "German" },
-  { label: "Greek", value: "Greek" },
-  { label: "Indian", value: "Indian" },
-  { label: "Irish", value: "Irish" },
-  { label: "Italian", value: "Italian" },
-  { label: "Japanese", value: "Japanese" },
-  { label: "Jewish", value: "Jewish" },
-  { label: "Korean", value: "Korean" },
-  { label: "Latin American", value: "Latin American" },
-  { label: "Mediterranean", value: "Mediterranean" },
-  { label: "Mexican", value: "Mexican" },
-  { label: "Middle Eastern", value: "Middle Eastern" },
-  { label: "Nordic", value: "Nordic" },
-  { label: "Southern", value: "Southern" },
-  { label: "Spanish", value: "Spanish" },
-  { label: "Thai", value: "Thai" },
-  { label: "Vietnamese", value: "Vietnamese" }
-];
-
 export default () => {
   const [titleQuery, setTitleQuery] = useState("");
+  const [cuisineQuery, setCuisineQuery] = useState([]);
+  const [dietQuery, setDietQuery] = useState("");
+  const [intolerancesQuery, setIntolerancesQuery] = useState([]);
+  const [mealTypeQuery, setMealTypeQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
 
   const performSearch = async () => {
     const res = await Axios.get("/api/recipes", {
       params: {
-        title: titleQuery
+        title: titleQuery,
+        cuisine: cuisineQuery.length > 0 ? cuisineQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
+        diet: dietQuery || undefined,
+        intolerances:
+          intolerancesQuery.length > 0 ? intolerancesQuery.reduce((acc, value) => `${acc},${value}`) : undefined,
+        mealType: mealTypeQuery || undefined
       }
     });
     setApiRes(res.data);
@@ -68,18 +45,31 @@ export default () => {
     <section className="search">
       <div className="textfield-container">
         <input className="search-input" value={titleQuery} onChange={(e) => setTitleQuery(e.target.value)} />
-        <Dropdown items={cuisineOptions} onSelect={(value) => console.log(value)} placeholder="Cuisine" isMulti />
         <button className="search-button" onClick={performSearch}>
           Search
         </button>
       </div>
+      <div className="drop-down">
+        <Dropdown className="dropdown-text" items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
+        <Dropdown className="dropdown-text" items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
+        <Dropdown
+          className="dropdown-text"
+          items={dropdownOptions.intolerances}
+          onSelect={setIntolerancesQuery}
+          placeholder="Intolerances"
+          isMulti
+        />
+        <Dropdown className="dropdown-text" items={dropdownOptions.mealType} onSelect={setMealTypeQuery} placeholder="Meal type" />
+      </div>
+        <div className="search-box">
       <div className="search-result-box">
-        {apiRes.results.map((result, i) => (
-          <RecipeSearchResult className="recipe-result" key={i} data={result} baseUri={apiRes.baseUri} />
-        ))}
+      {apiRes.results.map((result, i) => (
+        <RecipeSearchResult className="search-result-box" key={i} data={result} baseUri={apiRes.baseUri} />
+      ))}
+        </div>
       </div>
       <div>
-        <RecipeView />
+        <RecipeView  className="recipe-view"/>
       </div>
     </section>
   );
