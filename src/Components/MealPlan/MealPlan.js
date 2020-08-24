@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { MealPlanIdContext } from '../../contexts/MealPlanIdContext';
+import DailyMealPlan from '../DailyMealPlan/DailyMealPlan';
 import Axios from 'axios';
 import './MealPlan.scss';
 
@@ -38,20 +39,9 @@ const handleDelete = (id) => {
       ? <p>No Meals To View</p>
       : <h1>{weekArr[0].name}</h1>}
       <div>
-          {/* <p>{weekArr[0].day}</p> */}
       </div>
       {weekArr.map((plan, i) => (
-        <section className='outer-day-box'>
-          <section className='day-box'>
-              {/* <p>{plan.day}</p> */}
-              {/* <span  className='day-box-meal'>{plan.meal}: </span> */}
-              <span   className='day-box-number'>{plan.title}</span>
-              <img 
-                onClick={() => handleDelete(plan.id)}
-                className='day-box-delete'
-                src='https://image.flaticon.com/icons/svg/3209/3209887.svg' alt='delete'/>
-          </section>
-        </section>
+              <DailyMealPlan dailyMealPlan={plan}/>
       ))}
     </div>
   )

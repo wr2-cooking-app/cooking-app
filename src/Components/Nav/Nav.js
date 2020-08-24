@@ -25,7 +25,7 @@ export default () => {
         </div>
         <div className="nav-tabs">
           <Link to="/search"><img className='search-img' alt='search-img'src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/000/220/original/search.png"/></Link>
-          <Link to="/planner"><img className='planner-img' alt='planner-img' src="https://www.pinclipart.com/picdir/middle/388-3886103_calendar-icon-calendar-symbol-clipart.png"/></Link>
+          <Link to="/dashboard"><img className='planner-img' alt='planner-img' src="https://www.pinclipart.com/picdir/middle/388-3886103_calendar-icon-calendar-symbol-clipart.png"/></Link>
           <Link to="/profile">
             {userData.first_name} {userData.last_name}
           </Link>
