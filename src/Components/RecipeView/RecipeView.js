@@ -5,24 +5,28 @@ import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import "./RecipeView.scss";
 
 function RecipeView() {
-  const [recipe, setRecipe] = useState([{}]);
-  const { recipeId } = useContext(RecipeIdContext);
-  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
+  const [recipe, setRecipe] = useState(null);
   const [day, setDay] = useState("Sunday");
   const [time, setTime] = useState("Breakfast");
+  const [loading, setLoading] = useState(false);
+
+  const { recipeId } = useContext(RecipeIdContext);
+  const { mealPlanId } = useContext(MealPlanIdContext);
 
   //set recipe information to display
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const res = await Axios.get(`/api/recipe/${recipeId}`);
-      setRecipe(res.data);
+      setRecipe(res.data[0]);
+      setLoading(false);
     };
-    fetchData();
+    if (recipeId) fetchData();
   }, [recipeId]);
 
   const handleAdd = () => {
     const addPost = async () => {
-      await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe[0].title });
+      await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe.title });
       setTime("Breakfast");
       setDay("Sunday");
     };
@@ -32,14 +36,14 @@ function RecipeView() {
   return (
     <div className="recipe-display">
       <div className="recipe-view-container">
-        {!recipe[0].extendedIngredients ? (
-          <h1>Loading</h1>
+        {!recipe ? (
+          <h1>{loading ? "Loading..." : "Select a recipe"}</h1>
         ) : (
           <div className="recipe-info">
             <section className="recipe-directions">
-              <h1>{recipe[0].title}</h1>
-              <img className="recipe-pic" src={recipe[0].image} alt="food" />
-              {recipe[0].extendedIngredients.map((amount, i) => (
+              <h1>{recipe.title}</h1>
+              <img className="recipe-pic" src={recipe.image} alt="food" />
+              {recipe.extendedIngredients.map((amount, i) => (
                 <section>
                   <span className="ingredient-amount">{amount.measures.us.amount}</span>
                   <span className="ingredient-measurement">{amount.measures.us.unitShort}</span>
@@ -48,7 +52,7 @@ function RecipeView() {
               ))}
             </section>
             <section className="recipe-instructions">
-              {recipe[0].analyzedInstructions[0].steps.map((steps, i) => (
+              {recipe.analyzedInstructions[0].steps.map((steps, i) => (
                 <section>
                   <span>{steps.number}</span>
                   <span className="recipe-instructions-step">{steps.step}</span>

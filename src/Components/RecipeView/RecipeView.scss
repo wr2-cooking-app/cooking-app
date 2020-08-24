@@ -1,79 +1,82 @@
-.recipe-display{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50vw;
-    height: 88vh;
+.recipe-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  height: 88vh;
 }
 
-.recipe-view-container{
-    width: 600px;
-    height: 600px;
-    margin: 2%;
-    padding: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background: white;
-    // overflow-y: auto;
+.recipe-view-container {
+  width: 600px;
+  height: 600px;
+  margin: 2%;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: white;
+  // overflow-y: auto;
 }
 
-.recipe-info{
-    width: 600px;
-    height: 550px;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    overflow-y: auto;
-    align-items: center;
-    // background: grey;
-    padding: 50px;
-    // background-color: red;
+.recipe-view-container h1 {
+  color: black;
 }
 
-.recipe-pic{
-    width: 300px;
-    margin-bottom: 50px;
+.recipe-info {
+  width: 600px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  overflow-y: auto;
+  align-items: center;
+  // background: grey;
+  padding: 50px;
+  // background-color: red;
 }
 
-.recipe-directions{
-    width: 300px;
-    height: 500px;
-    flex-direction: column;
-    margin-bottom: 50px;
-    // background: pink;
+.recipe-pic {
+  width: 300px;
+  margin-bottom: 50px;
 }
 
-.ingredient-amount{
-    width: 20px;
-    // background: blue;
-    text-align: left;
+.recipe-directions {
+  width: 300px;
+  height: 500px;
+  flex-direction: column;
+  margin-bottom: 50px;
+  // background: pink;
 }
 
-.ingredient-measurement{
-    width:40px;
-    margin-left: 30px;
-    // background: green;
-    text-align: left;
-
-}
-.ingredient-name{
-    width: 200px;
-    margin-left: 20px;
-    // background: coral;
-    text-align: left;
+.ingredient-amount {
+  width: 20px;
+  // background: blue;
+  text-align: left;
 }
 
-.recipe-instructions{
-    flex-direction: column;
-    margin-top: 100px;
+.ingredient-measurement {
+  width: 40px;
+  margin-left: 30px;
+  // background: green;
+  text-align: left;
+}
+.ingredient-name {
+  width: 200px;
+  margin-left: 20px;
+  // background: coral;
+  text-align: left;
 }
 
-.recipe-instructions-step{
-    margin-left: 10px;
+.recipe-instructions {
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.recipe-instructions-step {
+  margin-left: 10px;
 }
 
 .selector-area {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
