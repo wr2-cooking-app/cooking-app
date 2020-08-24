@@ -16,7 +16,7 @@ module.exports = {
         diet: diet,
         intolerances: intolerances,
         type: mealType,
-        number: 10,
+        number: 9,
         instructionsRequired: true
       }
     });
@@ -31,5 +31,29 @@ module.exports = {
       `https://api.spoonacular.com/recipes/informationBulk?apiKey=${SPOONACULAR_API_KEY}&ids=${id}`
     );
     res.status(200).send(apiRes.data);
+  },
+
+  addRecipe: (req, res) => {
+    console.log(`recipe added to db`)
+    const db = req.app.get('db');
+
+    const { recipeId, mealPlanId, day, time, title } = req.body;
+
+    db.recipe.add_recipe({ recipeId, mealPlanId, day, time, title })
+    .then(data => {
+      res.status(200).send(data)
+    })
+    .catch(err => console.log(err))
+  },
+
+  deleteRecipe: (req, res) => {
+    console.log('recipe deleted')
+    const db = req.app.get('db');
+
+    const { id } = req.params;
+
+    db.recipe.delete_recipe({id})
+    .then(() => res.sendStatus(200))
+    .catch(err => console.log(err))
   }
 };
