@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./Nav.scss";
 
 export default () => {
   const { userData } = useContext(UserContext);
+  const [toggle, setToggle] = useState(false)
 
   const history = useHistory();
   const location = useLocation();
@@ -17,6 +18,10 @@ export default () => {
   // don't show if on auth page
   if (location.pathname === "/") return null;
 
+  const handleToggle = () => {
+    setToggle(!toggle)
+  }
+
   return (
     <section className="nav-background">
       <div className="nav">
@@ -28,7 +33,7 @@ export default () => {
           <Link to="/dashboard"><img className='planner-img' alt='planner-img' src="https://www.pinclipart.com/picdir/middle/388-3886103_calendar-icon-calendar-symbol-clipart.png"/></Link>
           <Link to="/profile">
             {userData.first_name} {userData.last_name}
-          </Link>
+          </Link> 
         </div>
       </div>
     </section>

@@ -45,7 +45,21 @@ module.exports = {
     const {id} = req.params;
     console.log(id)
 
-    const data = await db.meal_plan.get_meal_plan({id});
-    res.status(200).send(data)
-  }
+    const data = await db.meal_plan.get_meal_plan({ id });
+
+      let formattedData = {
+        Sunday: {},
+        Monday: {},
+        Tuesday: {},
+        Wednesday: {},
+        Thursday: {},
+        Friday: {},
+        Saturday: {}
+      };
+      data.forEach((meal) => {
+        formattedData[meal.day][meal.time] = meal;
+      });
+
+      res.status(200).send(formattedData);
+       }
 }
