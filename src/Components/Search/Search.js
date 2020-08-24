@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useContext, useState } from "react";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
+import { MealPlanIdContext } from '../../contexts/MealPlanIdContext';
 import RecipeView from "../RecipeView/RecipeView";
 import Dropdown from "../Shared/Dropdown/Dropdown";
 import dropdownOptions from "./dropdownOptions";
@@ -8,6 +9,7 @@ import "./Search.scss";
 
 const RecipeSearchResult = (props) => {
   const { setRecipeId } = useContext(RecipeIdContext);
+  const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
   const { baseUri, data } = props;
   const { image, title, id } = data;
   return (
@@ -26,6 +28,9 @@ export default () => {
   const [mealTypeQuery, setMealTypeQuery] = useState("");
 
   const [apiRes, setApiRes] = useState({ results: [] });
+
+  // const [recipeId, setRecipeId] = useContext(RecipeIdContext);
+  // const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
 
   const performSearch = async () => {
     const res = await Axios.get("/api/recipes", {

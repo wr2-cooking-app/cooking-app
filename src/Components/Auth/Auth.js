@@ -17,7 +17,7 @@ function Auth(props) {
 
   // forward to search page if already signed in
   useEffect(() => {
-    if (userData.id) history.push("/search");
+    if (userData.id) history.push("/dashboard");
   }, [history, userData]);
 
   const handleRegister = () => {
@@ -25,7 +25,7 @@ function Auth(props) {
       .post("/auth/register", { email, password, first_name, last_name, profile_picture })
       .then((res) => {
         setUserData(res.data);
-        history.push("/search");
+        history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -35,7 +35,7 @@ function Auth(props) {
       .post("/auth/login", { email, password })
       .then((res) => {
         setUserData(res.data);
-        history.push("/search");
+        history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
