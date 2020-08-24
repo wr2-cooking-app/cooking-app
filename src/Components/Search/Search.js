@@ -15,7 +15,7 @@ const RecipeSearchResult = (props) => {
   return (
     <div className="search-result">
       <div><img src={`${baseUri}${image}`} alt="Recipe"  onClick={() => setRecipeId(id)} /></div>
-      <div><label style={{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '10px'}}>{title}</label></div>
+      <div><label style={{textAlign: 'center', fontFamily: 'cursive', color: 'black', fontSize: '8px'}}>{title}</label></div>
     </div>
   );
 };
@@ -54,16 +54,17 @@ export default () => {
           Search
         </button>
       </div>
-      <div>
-        <Dropdown items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
-        <Dropdown items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
+      <div className="drop-down">
+        <Dropdown className="dropdown-text" items={dropdownOptions.cuisine} onSelect={setCuisineQuery} placeholder="Cuisine" isMulti />
+        <Dropdown className="dropdown-text" items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
         <Dropdown
+          className="dropdown-text"
           items={dropdownOptions.intolerances}
           onSelect={setIntolerancesQuery}
           placeholder="Intolerances"
           isMulti
         />
-        <Dropdown items={dropdownOptions.mealType} onSelect={setMealTypeQuery} placeholder="Meal type" />
+        <Dropdown className="dropdown-text" items={dropdownOptions.mealType} onSelect={setMealTypeQuery} placeholder="Meal type" />
       </div>
         <div className="search-box">
       <div className="search-result-box">

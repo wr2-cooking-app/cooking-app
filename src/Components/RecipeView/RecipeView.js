@@ -38,9 +38,9 @@ function RecipeView() {
   return (
     <div className="recipe-display">
       <div className="recipe-view-container">
-        <div>
-          <h1 style={{textAlign: 'center', fontFamily: 'cursive', color: 'black'}}>Recipe View</h1>
-        </div>
+        {/* <div>
+          <h1 style={{color: 'black'}}>Recipe View</h1>
+        </div> */}
         {!recipe[0].extendedIngredients ? (
           <h1>Loading</h1>
         ) : (
