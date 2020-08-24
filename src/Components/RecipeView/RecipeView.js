@@ -7,7 +7,7 @@ import "./RecipeView.scss";
 function RecipeView() {
   const [recipe, setRecipe] = useState([{}]);
   const { recipeId } = useContext(RecipeIdContext);
-  const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
+  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
   const [day, setDay] = useState("Sunday");
   const [time, setTime] = useState("Breakfast");
 

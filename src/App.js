@@ -31,9 +31,9 @@ function App() {
       {sessionChecked && (
         <UserContext.Provider value={{ userData, setUserData }}>
           <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
-            <MealPlanIdContext.Provider value={[mealPlanId, setMealPlanId]}>
-            <Nav />
-            {routes}
+            <MealPlanIdContext.Provider value={{ mealPlanId, setMealPlanId }}>
+              <Nav />
+              {routes}
             </MealPlanIdContext.Provider>
           </RecipeIdContext.Provider>
         </UserContext.Provider>
