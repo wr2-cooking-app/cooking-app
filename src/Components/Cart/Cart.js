@@ -17,26 +17,32 @@ function Cart(props) {
     Axios.get(`/api/recipe-id/${mealPlanId}`)
     .then(res => {
       setIdArr(res.data)
-      getRecipe()
+      getRecipe(res.data)
     })
     .catch(err => console.log(err))
   }
 
-  const getRecipe = () => {
-    console.log(idArr)
-      Axios.get(`/api/recipe/206986`)
-      .then(res => {
-        setRecipeData(res.data)
-      })
-      .catch(err => console.log(err))
+  const getRecipe = (data) => {
+    //example id 206986
+    console.log(data)
+    let dataArr = [];
+    for(let i = 0; i < data.length; i++) {
+      // console.log(data[i])
+        Axios.get(`/api/recipe/${data[i]}`)
+        .then(res => {
+          dataArr.push(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    setRecipeData(dataArr);
   }
 
   useEffect(() => {
     getId()
   }, []);
 
-  // console.log(idArr) 
-  // console.log(recipeData) 
+  console.log(idArr) 
+  console.log(recipeData) 
 
   // const mappedArr = mealPlan.map((data, i) => {
   //   let idArr = [];
