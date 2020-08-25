@@ -51,6 +51,8 @@ app.get("/api/meal-plans/:id", mealPlanCtrl.getMealPlans);
 app.get("/api/meal-plan/:id", mealPlanCtrl.getMealPlan);
 app.post("/api/add-mealplan", mealPlanCtrl.addMealPlan);
 app.delete("/api/delete/mealplan/:id", mealPlanCtrl.deleteMealPlan);
+app.get("/api/meal-plan/array/:id", mealPlanCtrl.getMealPlanArr);
+app.get("/api/recipe-id/:id", mealPlanCtrl.getRecipeId);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);

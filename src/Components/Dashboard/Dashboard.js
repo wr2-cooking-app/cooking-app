@@ -60,7 +60,9 @@ function Dashboard(props){
               <p className='meal-plan-name'>{mp.name}</p>
             </section>
             <section className='dashboard-buttons'>
-              <img src='https://image.flaticon.com/icons/svg/609/609496.svg' alt='cart'/>
+              <Link to={`/shopping-list/${mp.id}`}>
+                <img src='https://image.flaticon.com/icons/svg/609/609496.svg' alt='cart'/>
+              </Link>
               <Link to={`/mealplan/${mp.id}`}>
                 <img 
                   onClick={() => setMealPlanId(mp.id)}

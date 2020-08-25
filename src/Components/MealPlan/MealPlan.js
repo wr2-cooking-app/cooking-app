@@ -32,7 +32,7 @@ const handleDelete = (id) => {
 
 
   // console.log(weekArr.Monday)
-  console.log(mealPlanId)
+  // console.log(mealPlanId)
   return (
     <div className='meal-plan-container'>
       {!weekArr.Monday

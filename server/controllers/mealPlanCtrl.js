@@ -61,5 +61,29 @@ module.exports = {
       });
 
       res.status(200).send(formattedData);
-       }
+       },
+
+    getMealPlanArr: async (req, res) => {
+        console.log('meal plan fetched')
+    
+        const db = req.app.get('db');
+        const {id} = req.params;
+        console.log(id)
+    
+        const data = await db.meal_plan.get_meal_plan({ id });
+        res.status(200).send(data);
+      },
+
+    getRecipeId: async (req, res) => {
+        const db = req.app.get('db');
+        const {id} = req.params;
+        const dataArr = [];
+
+        const data = await db.meal_plan.get_recipe_id({id});
+        for (let i = 0; i < data.length; i++){
+          dataArr.push(data[i].recipe_id)
+        }
+
+        res.status(200).send(dataArr);
+      }
 }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { DayContext } from '../../contexts/DayContext';
 import { TimeContext } from '../../contexts/TimeContext';
+import { MealPlanIdContext } from '../../contexts/MealPlanIdContext';
 import Axios from 'axios';
 import './DailyMealPlan.scss'
 
@@ -10,6 +11,7 @@ function DailyMealPlan (props) {
 
   const {day, setDay} = useContext(DayContext);
   const {time, setTime} = useContext(TimeContext);
+  const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
 
   const { meals, deleteFn } = props;
 
@@ -18,7 +20,7 @@ function DailyMealPlan (props) {
     setTime(timeInput);
   }
 
-  console.log(meals)
+  // console.log(meals)
   return (
     <div>
       <div className='day-display-container'>
@@ -162,6 +164,9 @@ function DailyMealPlan (props) {
             src='https://image.flaticon.com/icons/svg/149/149147.svg' alt='delete'/></span> }</span></span>
         </section>
       </section>
+      <Link to={`/shopping-list/${mealPlanId}`}>
+      <button className='shopping-list-btn'>View Shopping List</button>
+      </Link>
       </div>
     </div>
   )
