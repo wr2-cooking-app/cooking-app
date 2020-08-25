@@ -31,6 +31,10 @@ const handleDelete = (id) => {
   .catch(err => console.log(err))
 }
 
+const mappedArr = weekArr.map((plan, i) => (
+           <DailyMealPlan dailyMealPlan={plan}/>
+))
+
   console.log(weekArr)
   console.log(mealPlanId)
   return (
@@ -39,10 +43,10 @@ const handleDelete = (id) => {
       ? <p>No Meals To View</p>
       : <h1>{weekArr[0].name}</h1>}
       <div>
+        <div>
+          {mappedArr}
+        </div>
       </div>
-      {weekArr.map((plan, i) => (
-              <DailyMealPlan dailyMealPlan={plan}/>
-      ))}
     </div>
   )
 }
