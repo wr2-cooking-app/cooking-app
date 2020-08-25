@@ -17,7 +17,7 @@ const getPlan = () => {
   console.log('hello1')
   Axios.get(`/api/meal-plan/${mealPlanId}`)
   .then(res => {
-    console.log('hello2')
+    console.log(res.data.Monday.Breakfast.title)
     setWeekArr(res.data)
   })
   .catch(err => console.log(err))
@@ -31,22 +31,14 @@ const handleDelete = (id) => {
   .catch(err => console.log(err))
 }
 
-const mappedArr = weekArr.map((plan, i) => (
-           <DailyMealPlan dailyMealPlan={plan}/>
-))
 
-  console.log(weekArr)
+  // console.log(weekArr.Monday)
   console.log(mealPlanId)
   return (
     <div className='meal-plan-container'>
-      {!weekArr[0]
+      {!weekArr.Monday
       ? <p>No Meals To View</p>
-      : <h1>{weekArr[0].name}</h1>}
-      <div>
-        <div>
-          {mappedArr}
-        </div>
-      </div>
+      : <DailyMealPlan meals={weekArr}/>} 
     </div>
   )
 }
