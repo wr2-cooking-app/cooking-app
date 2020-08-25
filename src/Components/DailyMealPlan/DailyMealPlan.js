@@ -20,7 +20,6 @@ function DailyMealPlan (props) {
 
   console.log(meals)
   return (
-    <div>
       <div className='day-display-container'>
       <section className='day-card'>
         <h2>Monday</h2>
@@ -163,7 +162,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       </div>
-    </div>
+
   )
 }
 

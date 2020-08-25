@@ -1,10 +1,12 @@
 .dashboard-container{
   width: 100vw;
-  height: 100vh;
+  height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background-image: url("https://i.pinimg.com/originals/46/15/79/4615790054e53633ee2e8ebd9d871b66.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .dashboard-box{
@@ -13,7 +15,7 @@
   flex-direction: column;
   width: 500px;
   height: 400px;
-  background: white;
+  background: rgb(65, 140, 238);
   color: black;
   text-align: center;
   padding: 10px;

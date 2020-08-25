@@ -39,6 +39,29 @@ function RecipeView() {
   console.log(day, time)
   return (
     <div className="recipe-display">
+        <div className="selector-area">
+          <div className="selectors">
+            <select className="options" value={day} onChange={e => setDay(e.target.value)}>
+              <option>Sunday</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+            </select>
+          </div>
+          <div className="selectors">
+            <select className="options" value={time} onChange={e => setTime(e.target.value)}>
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+            </select>
+          </div>
+          <div>
+            <button className="add-button" onClick={handleAdd}> Add </button>
+          </div>
+        </div>
       <div className="recipe-view-container">
         {/* <div>
           <h1 style={{color: 'black'}}>Recipe View</h1>
@@ -72,29 +95,6 @@ function RecipeView() {
             </section>
           </div>
         )}
-      </div>
-      <div className="seclector-area">
-        <div className="selectors">
-          <select className="options" value={day} onChange={e => setDay(e.target.value)}>
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-          </select>
-        </div>
-        <div className="selectors">
-          <select className="options" value={time} onChange={e => setTime(e.target.value)}>
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-          </select>
-        </div>
-        <div>
-          <button onClick={handleAdd}> Add </button>
-        </div>
       </div>
     </div>
   );
