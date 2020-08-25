@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import { MealPlanIdContext } from '../../contexts/MealPlanIdContext';
+import { DayContext } from '../../contexts/DayContext';
+import { TimeContext } from '../../contexts/TimeContext';
 import Axios from "axios";
 import "./RecipeView.scss";
 
@@ -8,8 +10,8 @@ function RecipeView() {
   const [recipe, setRecipe] = useState([{}]);
   const { recipeId } = useContext(RecipeIdContext);
   const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
-  const [day, setDay] = useState('Sunday');
-  const [time, setTime] = useState('Breakfast');
+  const {day, setDay} = useContext(DayContext);
+  const {time, setTime} = useContext(TimeContext);
 
   //set recipe information to display
   useEffect(() => {
@@ -34,7 +36,7 @@ function RecipeView() {
       .catch(err => console.log(err))
     }
 
-  console.log(time)
+  console.log(day, time)
   return (
     <div className="recipe-display">
       <div className="recipe-view-container">
