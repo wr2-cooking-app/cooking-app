@@ -14,9 +14,8 @@ function App() {
   const [userData, setUserData] = useState({});
   const [recipeId, setRecipeId] = useState(null);
   const [mealPlanId, setMealPlanId] = useState(null);
-  const [day, setDay] = useState('Sunday');
-  const [time, setTime] = useState('Breakfast');
-
+  const [day, setDay] = useState("Sunday");
+  const [time, setTime] = useState("Breakfast");
 
   // check session for signed in status
   useEffect(() => {
@@ -36,11 +35,11 @@ function App() {
       {sessionChecked && (
         <UserContext.Provider value={{ userData, setUserData }}>
           <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
-            <MealPlanIdContext.Provider value={[mealPlanId, setMealPlanId]}>
-              <DayContext.Provider value={{day, setDay}}>
-                <TimeContext.Provider value={{time, setTime}}>
-            <Nav />
-            {routes}
+            <MealPlanIdContext.Provider value={{ mealPlanId, setMealPlanId }}>
+              <DayContext.Provider value={{ day, setDay }}>
+                <TimeContext.Provider value={{ time, setTime }}>
+                  <Nav />
+                  {routes}
                 </TimeContext.Provider>
               </DayContext.Provider>
             </MealPlanIdContext.Provider>
