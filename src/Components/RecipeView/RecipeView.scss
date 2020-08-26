@@ -104,6 +104,9 @@
   justify-content: space-evenly;
   width: 40vw;
   margin: 3%;
+  background: hsla(244, 61%, 57%, 0.781);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px 5px 5px 5px;
 }
 
 .options {
@@ -112,18 +115,31 @@
   text-align: center;
   justify-content: center;
   font-size: 18px;
-  border: 3px solid #416ec2;
+  border: 2px solid #416ec2;
   border-radius: 5px 5px 5px 5px;
+  padding: 2px;
+  margin: 2px;
 }
 
 .add-button {
   width: 100px;
   height: 34px;
   border: 1px solid #416ec2;
-  background: #416ec2;
+  background: #42aee0;
   text-align: center;
   color: #fff;
   border-radius: 5px 5px 5px 5px;
   cursor: pointer;
   font-size: 20px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.recipe-name {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -2px;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+  text-align: center;
 }
