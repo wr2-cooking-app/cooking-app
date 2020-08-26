@@ -12,7 +12,7 @@ import routes from "./routes";
 function App() {
   const [sessionChecked, setSessionChecked] = useState(false);
   const [userData, setUserData] = useState({});
-  const [recipeId, setRecipeId] = useState(null);
+  const [recipeId, setRecipeId] = useState(878183);
   const [mealPlanId, setMealPlanId] = useState(null);
   const [day, setDay] = useState("Sunday");
   const [time, setTime] = useState("Breakfast");

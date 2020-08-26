@@ -31,9 +31,17 @@
 
 .recipe-upper-container h1 {
   color: black;
-  margin-left: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.recipe-points-container {
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+.recipe-points-container label {
+  margin: 0.5rem 0;
 }
 
 .recipe-info {
@@ -49,6 +57,11 @@
   // background-color: red;
 }
 
+.recipe-summary-container {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 .recipe-summary {
   display: inline;
 }
@@ -59,8 +72,25 @@
 
 .recipe-pic {
   width: 300px;
-  margin-bottom: 50px;
-  border: 1px solid #00b4cc;
+  border: 2px solid #416ec2;
+}
+
+.recipe-ingredients-table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.recipe-ingredients-table img {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #416ec2;
+  background-color: #ffffff;
+  padding: 0.5rem;
+}
+
+.recipe-ingredients-table td {
+  padding: 0.25rem;
+  vertical-align: middle;
 }
 
 .recipe-directions {
@@ -69,6 +99,20 @@
   flex-direction: column;
   margin-bottom: 50px;
   // background: pink;
+}
+
+.recipe-servings-container {
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-servings-container label {
+  margin-right: 0.25rem;
+}
+
+.recipe-servings-container .react-numeric-input input {
+  width: 3rem;
 }
 
 .ingredient-amount {
@@ -92,11 +136,16 @@
 
 .recipe-instructions {
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .recipe-instructions-step {
   margin-left: 10px;
+}
+
+.recipe-instructions section {
+  margin: 0.2rem 0;
 }
 
 .selector-area {
