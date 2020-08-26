@@ -81,6 +81,11 @@ function RecipeView() {
             <div className="recipe-servings-container">
               <label>Servings: </label>
               <NumericInput min={1} value={servings} onChange={(value) => setServings(value)} />
+              <label>Units: </label>
+              <select className="options" value={units} onChange={(e) => setUnits(e.target.value)}>
+                <option>metric</option>
+                <option>us</option>
+              </select>
             </div>
             <table className="recipe-ingredients-table">
               {recipe.extendedIngredients.map((ingredient, i) => (
