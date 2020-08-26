@@ -20,7 +20,6 @@ function DailyMealPlan (props) {
 
   console.log(meals)
   return (
-    <div>
       <div className='day-display-container'>
       <section className='day-card'>
         <h2>Monday</h2>
@@ -163,25 +162,9 @@ function DailyMealPlan (props) {
         </section>
       </section>
       </div>
-    </div>
+
   )
 }
 
 export default DailyMealPlan; 
 
-
-
-//  <div>
-//           <p>{weekArr[0].day}</p>
-//       </div>
-//       {weekArr.map((plan, i) => (
-//         <section className='outer-day-box'>
-//           <section className='day-box'>
-//               <span   className='day-box-number'>{plan.title}</span>
-//               <img 
-//                 onClick={() => handleDelete(plan.id)}
-//                 className='day-box-delete'
-//                 src='https://image.flaticon.com/icons/svg/3209/3209887.svg' alt='delete'/>
-//           </section>
-//         </section>
-//       ))}
