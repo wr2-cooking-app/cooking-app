@@ -8,8 +8,6 @@ import "./RecipeView.scss";
 
 function RecipeView() {
   const [recipe, setRecipe] = useState(null);
-  const [day, setDay] = useState("Sunday");
-  const [time, setTime] = useState("Breakfast");
   const [loading, setLoading] = useState(false);
 
   const { recipeId } = useContext(RecipeIdContext);
@@ -35,15 +33,6 @@ function RecipeView() {
       setDay("Sunday");
     };
     addPost();
-  };
-
-  const handleAdd = () => {
-    Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe[0].title })
-      .then(() => {
-        setTime("Breakfast");
-        setDay("Sunday");
-      })
-      .catch((err) => console.log(err));
   };
 
   console.log(day, time);
