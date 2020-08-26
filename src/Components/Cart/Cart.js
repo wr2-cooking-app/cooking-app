@@ -28,7 +28,7 @@ function Cart(props) {
     let dataArr = [];
     for(let i = 0; i < data.length; i++) {
       // console.log(data[i])
-        Axios.get(`/api/recipe/${data[i]}`)
+        Axios.get(`/api/ingredients/${data[i]}`)
         .then(res => {
           dataArr.push(res.data);
         })
