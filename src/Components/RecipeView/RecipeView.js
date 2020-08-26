@@ -5,11 +5,13 @@ import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import { TimeContext } from "../../contexts/TimeContext";
 import "./RecipeView.scss";
+import NumericInput from "react-numeric-input";
 
 function RecipeView() {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
   const [units, setUnits] = useState("us");
+  const [servings, setServings] = useState(null);
 
   const { recipeId } = useContext(RecipeIdContext);
   const { mealPlanId } = useContext(MealPlanIdContext);
@@ -22,6 +24,7 @@ function RecipeView() {
       setLoading(true);
       const res = await Axios.get(`/api/recipe/${recipeId}`);
       setRecipe(res.data[0]);
+      setServings(res.data[0].servings);
       setLoading(false);
     };
     if (recipeId) fetchData();
@@ -75,6 +78,10 @@ function RecipeView() {
               <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
             </div>
             <h2>Ingredients:</h2>
+            <div className="recipe-servings-container">
+              <label>Servings: </label>
+              <NumericInput min={1} value={servings} onChange={(value) => setServings(value)} />
+            </div>
             <table className="recipe-ingredients-table">
               {recipe.extendedIngredients.map((ingredient, i) => (
                 <tr>
@@ -82,13 +89,14 @@ function RecipeView() {
                     <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt="Ingredient" />
                   </td>
                   <td>
-                    {ingredient.measures[units].amount} {ingredient.measures[units].unitShort}
+                    {ingredient.measures[units].amount * (servings / recipe.servings)}{" "}
+                    {ingredient.measures[units].unitShort}
                   </td>
                   <td>{ingredient.name}</td>
                 </tr>
               ))}
             </table>
-            <h2>Instructions:</h2>
+            <h2>Instructions</h2>
             <section className="recipe-instructions">
               {recipe.analyzedInstructions[0].steps.map((steps, i) => (
                 <section>
