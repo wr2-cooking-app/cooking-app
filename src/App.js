@@ -5,6 +5,8 @@ import Nav from "./Components/Nav/Nav";
 import { UserContext } from "./contexts/UserContext";
 import { RecipeIdContext } from "./contexts/RecipeIdContext";
 import { MealPlanIdContext } from "./contexts/MealPlanIdContext";
+import { DayContext } from "./contexts/DayContext";
+import { TimeContext } from "./contexts/TimeContext";
 import routes from "./routes";
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
   const [userData, setUserData] = useState({});
   const [recipeId, setRecipeId] = useState(null);
   const [mealPlanId, setMealPlanId] = useState(null);
+  const [day, setDay] = useState("Sunday");
+  const [time, setTime] = useState("Breakfast");
 
   // check session for signed in status
   useEffect(() => {
@@ -32,8 +36,12 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <RecipeIdContext.Provider value={{ recipeId, setRecipeId }}>
             <MealPlanIdContext.Provider value={{ mealPlanId, setMealPlanId }}>
-              <Nav />
-              {routes}
+              <DayContext.Provider value={{ day, setDay }}>
+                <TimeContext.Provider value={{ time, setTime }}>
+                  <Nav />
+                  {routes}
+                </TimeContext.Provider>
+              </DayContext.Provider>
             </MealPlanIdContext.Provider>
           </RecipeIdContext.Provider>
         </UserContext.Provider>

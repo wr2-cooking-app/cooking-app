@@ -42,7 +42,6 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard-container">
-      <h1>Dashboard</h1>
       <section className="dashboard-box">
         <h3>{userData.first_name}'s Meal Plans</h3>
         <section className="dashboard-add-new">

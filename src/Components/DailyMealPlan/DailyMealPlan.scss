@@ -1,0 +1,59 @@
+
+.day-display-container{
+  width: 100vw;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: auto;
+  background-image: url("https://i.pinimg.com/originals/46/15/79/4615790054e53633ee2e8ebd9d871b66.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.day-card{
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 1.25rem;
+  background: white;
+  color: black;
+}
+
+.day-meal-info{
+  width: 300px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  // background: pink;
+}
+
+.time-row{
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+  width: 285px;
+  height: 55px;
+  margin: 7px;
+  border: solid black 1px;
+  // background: pink;
+
+  span{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.day-recipe-delete{
+  width: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  &:hover{
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    transform: scale(1.2);
+  }
+}
