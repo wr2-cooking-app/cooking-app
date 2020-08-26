@@ -11,7 +11,7 @@ function RecipeView() {
   const [loading, setLoading] = useState(false);
 
   const { recipeId } = useContext(RecipeIdContext);
-  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
+  const { mealPlanId } = useContext(MealPlanIdContext);
   const { day, setDay } = useContext(DayContext);
   const { time, setTime } = useContext(TimeContext);
 
@@ -35,7 +35,6 @@ function RecipeView() {
     addPost();
   };
 
-  console.log(day, time);
   return (
     <div className="recipe-display">
       <div className="selector-area">
@@ -65,13 +64,13 @@ function RecipeView() {
         </div>
       </div>
       <div className="recipe-view-container">
-        {!recipe ? (
-          <h1>{loading ? "Loading..." : "Select a recipe"}</h1>
-        ) : (
+        {recipe ? (
           <div className="recipe-info">
-            <h1>{recipe.title}</h1>
-            <img className="recipe-pic" src={recipe.image} alt="food" />
-            <div className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
+            <div className="recipe-upper-container">
+              <img className="recipe-pic" src={recipe.image} alt="food" />
+              <h1>{recipe.title}</h1>
+            </div>
+            <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
             <section className="recipe-directions">
               {recipe.extendedIngredients.map((amount, i) => (
                 <section>
@@ -90,6 +89,8 @@ function RecipeView() {
               ))}
             </section>
           </div>
+        ) : (
+          <label>{loading ? "Loading..." : "Select a recipe"}</label>
         )}
       </div>
     </div>
