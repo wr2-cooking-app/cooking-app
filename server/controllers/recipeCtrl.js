@@ -33,6 +33,15 @@ module.exports = {
     res.status(200).send(apiRes.data);
   },
 
+  // getIngredients: async (req, res) => {
+  //   console.log(`getting ingredients`);
+
+  //   const { id } req.params;
+  //   const apiRes = await Axios.get(
+  //     `https://api.spoonacular.com/recipes/:id/ingredientWidget.json?apiKey=${SPOONACULAR_API_KEY}`
+  //   )
+  // },
+
   addRecipe: (req, res) => {
     console.log(`recipe added to db`)
     const db = req.app.get('db');

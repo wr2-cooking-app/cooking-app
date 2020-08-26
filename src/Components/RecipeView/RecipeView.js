@@ -70,8 +70,8 @@ function RecipeView() {
           <h1>Loading</h1>
         ) : (
           <div className="recipe-info">
+            <h1 className="recipe-name">{recipe[0].title}</h1>
             <section className="recipe-directions">
-            <h1>{recipe[0].title}</h1>
               <img className="recipe-pic" src={recipe[0].image} alt="food" />
               {recipe[0].extendedIngredients.map((amount, i) => (
                 <section>
