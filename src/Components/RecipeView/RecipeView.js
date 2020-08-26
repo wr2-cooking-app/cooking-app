@@ -40,9 +40,10 @@ function RecipeView() {
           <h1>{loading ? "Loading..." : "Select a recipe"}</h1>
         ) : (
           <div className="recipe-info">
+            <h1>{recipe.title}</h1>
+            <img className="recipe-pic" src={recipe.image} alt="food" />
+            <div className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
             <section className="recipe-directions">
-              <h1>{recipe.title}</h1>
-              <img className="recipe-pic" src={recipe.image} alt="food" />
               {recipe.extendedIngredients.map((amount, i) => (
                 <section>
                   <span className="ingredient-amount">{amount.measures.us.amount}</span>
