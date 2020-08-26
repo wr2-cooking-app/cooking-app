@@ -8,7 +8,7 @@ function Cart(props) {
 
   const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
   const [idArr, setIdArr] = useState([]);
-  const [recipeData, setRecipeData] = useState([{}]);
+  const [recipeData, setRecipeData] = useState([]);
 
 
 
