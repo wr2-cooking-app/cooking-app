@@ -11,7 +11,7 @@ function DailyMealPlan (props) {
 
   const {day, setDay} = useContext(DayContext);
   const {time, setTime} = useContext(TimeContext);
-  const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
+  const {mealPlanId, setMealPlanId} = useContext(MealPlanIdContext);
 
   const { meals, deleteFn } = props;
 
