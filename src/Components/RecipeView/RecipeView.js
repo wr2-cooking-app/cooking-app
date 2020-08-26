@@ -9,6 +9,7 @@ import "./RecipeView.scss";
 function RecipeView() {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [units, setUnits] = useState("us");
 
   const { recipeId } = useContext(RecipeIdContext);
   const { mealPlanId } = useContext(MealPlanIdContext);
@@ -70,16 +71,24 @@ function RecipeView() {
               <img className="recipe-pic" src={recipe.image} alt="food" />
               <h1>{recipe.title}</h1>
             </div>
-            <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
-            <section className="recipe-directions">
-              {recipe.extendedIngredients.map((amount, i) => (
-                <section>
-                  <span className="ingredient-amount">{amount.measures.us.amount}</span>
-                  <span className="ingredient-measurement">{amount.measures.us.unitShort}</span>
-                  <span className="ingredient-name">{amount.name}</span>
-                </section>
+            <div className="recipe-summary-container">
+              <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
+            </div>
+            <h2>Ingredients:</h2>
+            <table className="recipe-ingredients-table">
+              {recipe.extendedIngredients.map((ingredient, i) => (
+                <tr>
+                  <td>
+                    <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt="Ingredient" />
+                  </td>
+                  <td>
+                    {ingredient.measures[units].amount} {ingredient.measures[units].unitShort}
+                  </td>
+                  <td>{ingredient.name}</td>
+                </tr>
               ))}
-            </section>
+            </table>
+            <h2>Instructions:</h2>
             <section className="recipe-instructions">
               {recipe.analyzedInstructions[0].steps.map((steps, i) => (
                 <section>
