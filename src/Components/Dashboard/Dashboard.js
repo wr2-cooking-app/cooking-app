@@ -46,19 +46,19 @@ function Dashboard(props){
 
   return (
     <div className='dashboard-container'>
-      <section className='dashboard-box'>
-        <h3>{userData.first_name}'s Meal Plans</h3>
-        <section className='dashboard-add-new' >
-          <input value={mealName} placeholder='meal plan name' onChange={e => setMealName(e.target.value)} />
-          <button  onClick={handleAddNew} >Add New</button>
-        </section>
+      <div className='dashboard-box'>
+          <h2 className="name-plan">{userData.first_name}'s Meal Plans</h2>
+        <div className='dashboard-add-new' >
+          <input className="dash-input" value={mealName} placeholder='meal plan name' onChange={e => setMealName(e.target.value)} />
+          <button  className="dash-button" onClick={handleAddNew}>Add New</button>
+        </div>
         {mealPlans.map((mp, i) => (
-          <section className='meal-section'>
-            <section className='left-meal-section'>
-              <span className='number'>{i + 1}.</span>
+        <div className='meal-section'>
+            <div className='left-meal-section'>
+              <span className='meal-plan-name'>{i + 1}.</span>
               <p className='meal-plan-name'>{mp.name}</p>
-            </section>
-            <section className='dashboard-buttons'>
+            </div>
+            <div className='dashboard-buttons'>
               <img src='https://image.flaticon.com/icons/svg/609/609496.svg' alt='cart'/>
               <Link to={`/mealplan/${mp.id}`}>
                 <img 
@@ -68,10 +68,10 @@ function Dashboard(props){
               <img 
                 onClick={() => handleDelete(mp.id)}
                 src='https://image.flaticon.com/icons/svg/3209/3209887.svg' alt='delete'/>
-            </section>
-          </section>    
+            </div>
+        </div>    
         ))}
-      </section>
+      </div>
     </div>
   )
 }
