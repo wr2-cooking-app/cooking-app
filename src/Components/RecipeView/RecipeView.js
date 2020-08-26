@@ -1,92 +1,87 @@
-import React, { useState, useEffect, useContext } from "react";
-import { RecipeIdContext } from "../../contexts/RecipeIdContext";
-import { MealPlanIdContext } from '../../contexts/MealPlanIdContext';
-import { DayContext } from '../../contexts/DayContext';
-import { TimeContext } from '../../contexts/TimeContext';
 import Axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { DayContext } from "../../contexts/DayContext";
+import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
+import { RecipeIdContext } from "../../contexts/RecipeIdContext";
+import { TimeContext } from "../../contexts/TimeContext";
 import "./RecipeView.scss";
 
 function RecipeView() {
-  const [recipe, setRecipe] = useState([{}]);
+  const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const { recipeId } = useContext(RecipeIdContext);
-  const [mealPlanId, setMealPlanId] = useContext(MealPlanIdContext);
-  const {day, setDay} = useContext(DayContext);
-  const {time, setTime} = useContext(TimeContext);
+  const { mealPlanId } = useContext(MealPlanIdContext);
+  const { day, setDay } = useContext(DayContext);
+  const { time, setTime } = useContext(TimeContext);
 
   //set recipe information to display
   useEffect(() => {
-    displayRecipe()
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await Axios.get(`/api/recipe/${recipeId}`);
+      setRecipe(res.data[0]);
+      setLoading(false);
+    };
+    if (recipeId) fetchData();
   }, [recipeId]);
 
-    //retrieve recipe data from API
-    const displayRecipe = () => {
-      Axios.get(`/api/recipe/${recipeId}`)
-        .then((res) => {
-          setRecipe(res.data);
-        })
-        .catch((err) => console.log(err));
+  const handleAdd = () => {
+    const addPost = async () => {
+      await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe.title });
+      setTime("Breakfast");
+      setDay("Sunday");
     };
+    addPost();
+  };
 
-    const handleAdd = () => {
-      Axios.post('/api/add-recipe', {recipeId, mealPlanId, day, time, title: recipe[0].title})
-      .then( () => {
-        setTime('Breakfast')
-        setDay('Sunday')
-      })
-      .catch(err => console.log(err))
-    }
-
-  console.log(day, time)
   return (
     <div className="recipe-display">
-        <div className="selector-area">
-          <div className="selectors">
-            <select className="options" value={day} onChange={e => setDay(e.target.value)}>
-              <option>Sunday</option>
-              <option>Monday</option>
-              <option>Tuesday</option>
-              <option>Wednesday</option>
-              <option>Thursday</option>
-              <option>Friday</option>
-              <option>Saturday</option>
-            </select>
-          </div>
-          <div className="selectors">
-            <select className="options" value={time} onChange={e => setTime(e.target.value)}>
-              <option>Breakfast</option>
-              <option>Lunch</option>
-              <option>Dinner</option>
-            </select>
-          </div>
-          <div>
-            <button className="add-button" onClick={handleAdd}> Add </button>
-          </div>
+      <div className="selector-area">
+        <div className="selectors">
+          <select className="options" value={day} onChange={(e) => setDay(e.target.value)}>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
         </div>
+        <div className="selectors">
+          <select className="options" value={time} onChange={(e) => setTime(e.target.value)}>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+          </select>
+        </div>
+        <div>
+          <button className="add-button" onClick={handleAdd}>
+            {" "}
+            Add{" "}
+          </button>
+        </div>
+      </div>
       <div className="recipe-view-container">
-        {/* <div>
-          <h1 style={{color: 'black'}}>Recipe View</h1>
-        </div> */}
-        {!recipe[0].extendedIngredients ? (
-          <h1>Loading</h1>
-        ) : (
+        {recipe ? (
           <div className="recipe-info">
-            <h1 className="recipe-name">{recipe[0].title}</h1>
+            <div className="recipe-upper-container">
+              <img className="recipe-pic" src={recipe.image} alt="food" />
+              <h1>{recipe.title}</h1>
+            </div>
+            <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
             <section className="recipe-directions">
-              <img className="recipe-pic" src={recipe[0].image} alt="food" />
-              {recipe[0].extendedIngredients.map((amount, i) => (
+              {recipe.extendedIngredients.map((amount, i) => (
                 <section>
-                  <span className="ingredient-amount">
-                    {amount.measures.us.amount}
-                  </span>
-                  <span className="ingredient-measurement">
-                    {amount.measures.us.unitShort}
-                  </span>
+                  <span className="ingredient-amount">{amount.measures.us.amount}</span>
+                  <span className="ingredient-measurement">{amount.measures.us.unitShort}</span>
                   <span className="ingredient-name">{amount.name}</span>
                 </section>
               ))}
             </section>
             <section className="recipe-instructions">
-              {recipe[0].analyzedInstructions[0].steps.map((steps, i) => (
+              {recipe.analyzedInstructions[0].steps.map((steps, i) => (
                 <section>
                   <span>{steps.number}</span>
                   <span className="recipe-instructions-step">{steps.step}</span>
@@ -94,6 +89,8 @@ function RecipeView() {
               ))}
             </section>
           </div>
+        ) : (
+          <label>{loading ? "Loading..." : "Select a recipe"}</label>
         )}
       </div>
     </div>
