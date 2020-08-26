@@ -10,8 +10,8 @@ import NumericInput from "react-numeric-input";
 function RecipeView() {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [units, setUnits] = useState("us");
   const [servings, setServings] = useState(null);
+  const [units, setUnits] = useState("us");
 
   const { recipeId } = useContext(RecipeIdContext);
   const { mealPlanId } = useContext(MealPlanIdContext);
@@ -72,7 +72,12 @@ function RecipeView() {
           <div className="recipe-info">
             <div className="recipe-upper-container">
               <img className="recipe-pic" src={recipe.image} alt="food" />
-              <h1>{recipe.title}</h1>
+              <div className="recipe-points-container">
+                <h1>{recipe.title}</h1>
+                <label>{recipe.aggregateLikes} likes</label>
+                <label>Ready in {recipe.cookingMinutes} minutes</label>
+                <label>Spoonacular score: {recipe.spoonacularScore}%</label>
+              </div>
             </div>
             <div className="recipe-summary-container">
               <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />

@@ -31,9 +31,17 @@
 
 .recipe-upper-container h1 {
   color: black;
-  margin-left: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.recipe-points-container {
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+.recipe-points-container label {
+  margin: 0.5rem 0;
 }
 
 .recipe-info {
