@@ -50,8 +50,9 @@ function Auth(props) {
           <div className="login-box">
             <h3 style={{ color: "black", textAlign: "center" }}>Login To Your Profile:</h3>
             <div className="login-box">
-              <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+              <input className="auth-input"  value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
               <input
+              className="auth-input"  
                 value={password}
                 placeholder="Password"
                 type="password"
@@ -74,31 +75,33 @@ function Auth(props) {
                   alt={"default"}
                 />
               )}
-              <input value={first_name} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
-              <input value={last_name} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
-              <input value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+              <input className="auth-input"  value={first_name} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+              <input className="auth-input"  value={last_name} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+              <input className="auth-input"  value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
               <input
+                className="auth-input"  
                 value={password}
                 placeholder="Password"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <input
+                className="auth-input" 
                 value={profile_picture}
                 placeholder="Profile Picture"
                 onChange={(e) => setProfilePicture(e.target.value)}
               />
-              <button onClick={handleRegister}>Register</button>
+              <button className="auth-button" onClick={handleRegister}>Register</button>
               <p style={{ color: "black" }}>
-                Already Registered? <button onClick={() => setRegistering(!registering)}>Login Here</button>
+                Already Registered? <button className="auth-button" onClick={() => setRegistering(!registering)}>Login Here</button>
               </p>
             </div>
           </>
         ) : (
           <div className="login-box">
-            <button onClick={handleLogin}>Login</button>
+            <button className="auth-button" onClick={handleLogin}>Login</button>
             <p style={{ color: "black" }}>
-              Not Registered? <button onClick={() => setRegistering(!registering)}>Register Here</button>
+              Not Registered? <button className="auth-button" onClick={() => setRegistering(!registering)}>Register Here</button>
             </p>
           </div>
         )}

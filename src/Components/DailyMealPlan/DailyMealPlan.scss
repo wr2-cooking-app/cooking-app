@@ -1,19 +1,23 @@
 
 .day-display-container{
-  width: 90vw;
-  height: 100vh;
+  width: 100vw;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   overflow: auto;
+  background-image: url("https://i.pinimg.com/originals/46/15/79/4615790054e53633ee2e8ebd9d871b66.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .day-card{
   width: 300px;
   height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 3rem 1.25rem;
   background: white;
   color: black;
 }

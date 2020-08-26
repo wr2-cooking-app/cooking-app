@@ -3,18 +3,20 @@
     flex-direction: column;
     align-items: center;
     width: 50vw;
-    height: 88vh;
+    height: 85vh;
 }
 
 .recipe-view-container{
-    width: 600px;
-    height: 600px;
-    margin: 2%;
+    width: 40vw;
+    height: 74vh;
+    margin: 3%;
     padding: 2%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: white;
+    background: hsla(96, 6%, 84%, 0.781);
+    // border: 3px solid #416ec2;
+    // border-radius: 5px 5px 5px 5px;
     // overflow-y: auto;
 }
 
@@ -75,5 +77,29 @@
 
 .selector-area {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    width: 40vw;
+    margin: 3%;
+}
+
+.options {
+    width: 150px;
+    height: 32px;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 3px solid #416ec2;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.add-button {
+    width: 100px;
+    height: 34px;
+    border: 1px solid #416ec2;
+    background: #416ec2;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-size: 20px;
 }
