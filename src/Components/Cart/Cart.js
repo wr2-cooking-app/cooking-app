@@ -1,9 +1,9 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./Cart.scss";
 
-export default function Cart(props) {
+export default () => {
   const [cart, setCart] = useState(null);
   const params = useParams();
 
@@ -17,6 +17,9 @@ export default function Cart(props) {
 
   return (
     <main className="cart-container">
+      <Link to={`/mealplan/${params.id}`}>
+        <button>Back to meal plan</button>
+      </Link>
       {cart ? (
         <div className="cart-card">
           <table className="cart-table">
@@ -45,4 +48,4 @@ export default function Cart(props) {
       )}
     </main>
   );
-}
+};

@@ -3,6 +3,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import DailyMealPlan from "../DailyMealPlan/DailyMealPlan";
 import "./MealPlan.scss";
+import { Link } from "react-router-dom";
 
 function MealPlan(props) {
   const [weekArr, setWeekArr] = useState([]);
@@ -31,6 +32,11 @@ function MealPlan(props) {
 
   return (
     <div className="meal-plan-container">
+      {mealPlanId && (
+        <Link to={`/cart/${mealPlanId}`}>
+          <button>Generate shopping cart</button>
+        </Link>
+      )}
       {!weekArr.Monday ? <p>No Meals To View</p> : <DailyMealPlan meals={weekArr} deleteFn={handleDelete} />}
     </div>
   );
