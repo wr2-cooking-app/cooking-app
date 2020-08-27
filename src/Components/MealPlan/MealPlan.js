@@ -17,10 +17,6 @@ function MealPlan(props) {
       .catch((err) => console.log(err));
   }, [mealPlanId]);
 
-  useEffect(() => {
-    getPlan();
-  }, [getPlan, mealPlanId]);
-
   const handleDelete = (id) => {
     Axios.delete(`/api/delete/recipe/${id}`)
       .then(() => {
@@ -28,6 +24,10 @@ function MealPlan(props) {
       })
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    getPlan();
+  }, [getPlan, mealPlanId]);
 
   return (
     <div className="meal-plan-container">
