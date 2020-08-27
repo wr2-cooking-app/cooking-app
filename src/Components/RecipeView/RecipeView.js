@@ -17,7 +17,7 @@ function RecipeView() {
   const { mealPlanId } = useContext(MealPlanIdContext);
   const { day, setDay } = useContext(DayContext);
   const { time, setTime } = useContext(TimeContext);
-  const [mealPlan, setMealPlan] = useState([]);
+  const [mealPlan, setMealPlan] = useState([])
 
   //set recipe information to display
   useEffect(() => {
@@ -33,13 +33,7 @@ function RecipeView() {
 
   const handleAdd = () => {
     const addPost = async () => {
-      await Axios.post("/api/add-recipe", {
-        recipeId,
-        mealPlanId,
-        day,
-        time,
-        title: recipe.title,
-      });
+      await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe.title });
       setTime("Breakfast");
       setDay("Sunday");
     };
@@ -56,20 +50,16 @@ function RecipeView() {
   };
 
   useEffect(() => {
-    planName();
+    planName()
   }, []);
 
-  console.log(mealPlan.name);
+  console.log(mealPlan.name)
   return (
     <div className="recipe-display">
-      <p className="meal-plan-name"> MEAL PLAN: {mealPlan.name}</p>
+      <p className='meal-plan-name'> MEAL PLAN:{mealPlan.name}</p>
       <div className="selector-area">
         <div className="selectors">
-          <select
-            className="options"
-            value={day}
-            onChange={(e) => setDay(e.target.value)}
-          >
+          <select className="options" value={day} onChange={(e) => setDay(e.target.value)}>
             <option>Sunday</option>
             <option>Monday</option>
             <option>Tuesday</option>
@@ -80,11 +70,7 @@ function RecipeView() {
           </select>
         </div>
         <div className="selectors">
-          <select
-            className="options"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          >
+          <select className="options" value={time} onChange={(e) => setTime(e.target.value)}>
             <option>Breakfast</option>
             <option>Lunch</option>
             <option>Dinner</option>
@@ -110,25 +96,14 @@ function RecipeView() {
               </div>
             </div>
             <div className="recipe-summary-container">
-              <p
-                className="recipe-summary"
-                dangerouslySetInnerHTML={{ __html: recipe.summary }}
-              />
+              <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
             </div>
             <h2>Ingredients:</h2>
             <div className="recipe-servings-container">
               <label>Servings: </label>
-              <NumericInput
-                min={1}
-                value={servings}
-                onChange={(value) => setServings(value)}
-              />
+              <NumericInput min={1} value={servings} onChange={(value) => setServings(value)} />
               <label>Units: </label>
-              <select
-                className="options"
-                value={units}
-                onChange={(e) => setUnits(e.target.value)}
-              >
+              <select className="options" value={units} onChange={(e) => setUnits(e.target.value)}>
                 <option>metric</option>
                 <option>us</option>
               </select>
@@ -137,14 +112,10 @@ function RecipeView() {
               {recipe.extendedIngredients.map((ingredient, i) => (
                 <tr>
                   <td>
-                    <img
-                      src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}
-                      alt="Ingredient"
-                    />
+                    <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt="Ingredient" />
                   </td>
                   <td>
-                    {ingredient.measures[units].amount *
-                      (servings / recipe.servings)}{" "}
+                    {ingredient.measures[units].amount * (servings / recipe.servings)}{" "}
                     {ingredient.measures[units].unitShort}
                   </td>
                   <td>{ingredient.name}</td>

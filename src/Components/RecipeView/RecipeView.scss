@@ -5,24 +5,24 @@
   width: 50vw;
   height: 85vh;
 
-  p{
+  .meal-plan-name{
     color: black;
     margin-top: 25px;
+    font-size: 30px;
+    background-color: white;
   }
 }
 
 .recipe-view-container {
   width: 40vw;
   height: 66vh;
-  margin: 3%;
+  margin: 1.5%;
   padding: 2%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   background: hsla(96, 6%, 84%, 0.781);
-  // border: 3px solid #416ec2;
-  // border-radius: 5px 5px 5px 5px;
-  // overflow-y: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .recipe-view-container label {
@@ -157,7 +157,7 @@
   display: flex;
   justify-content: space-evenly;
   width: 40vw;
-  margin: 3%;
+  margin: 2%;
   background: hsla(244, 61%, 57%, 0.781);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px 5px 5px 5px;
