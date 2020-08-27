@@ -1,11 +1,14 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import "./Cart.scss";
 
 export default () => {
   const [cart, setCart] = useState(null);
   const params = useParams();
+
+  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
 
   useEffect(() => {
     const getCart = async function () {
@@ -14,6 +17,10 @@ export default () => {
     };
     if (params.id) getCart();
   }, [params.id]);
+
+  useEffect(() => {
+    if (!mealPlanId) setMealPlanId(+params.id);
+  }, [mealPlanId, params.id, setMealPlanId]);
 
   return (
     <main className="cart-container">
