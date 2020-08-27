@@ -32,7 +32,7 @@ function MealPlanMeal({ dayName, deleteFn, meal, time }) {
           <span>
             <label
               onClick={() => {
-                setRecipeId(meal.id);
+                setRecipeId(meal.recipe_id);
                 history.push("/search");
               }}
             >
