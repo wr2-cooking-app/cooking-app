@@ -45,8 +45,9 @@ function Dashboard(props) {
   const handleSubmitChange = (id) => {
     Axios.put(`/api/edit/mealplan/${id}`, {name: editName})
     .then(() => {
+      setEditName("")
       getMealPlans();
-      setEditView();
+      setEditView(null);
     })
     .catch((err) => console.log(err));
   };
@@ -54,11 +55,12 @@ function Dashboard(props) {
   const handleEdit = (id) => {
     Axios.get(`/api/meal-plan/${id}`)
     .then(() => {
-      setEditView(!editView)
+      setEditView(id)
     })
     .catch(err => console.log(err))
   }
 
+  console.log(editName)
 
   return (
     <div className="dashboard-container">
@@ -79,7 +81,7 @@ function Dashboard(props) {
           <div className="meal-section">
             <div className="left-meal-section">
               <span className="meal-plan-name">{i + 1}.</span>
-              {!editView
+              {editView !== mp.id
               ?
               <p className="meal-plan-name" onClick={() => handleEdit(mp.id)}>{mp.name}</p>
               : 
@@ -90,7 +92,7 @@ function Dashboard(props) {
                 placeholder={mp.name}
                 onChange={(e) => setEditName(e.target.value)}
               />
-              <button className="edit-button" onClick={() => handleSubmitChange(mp.id)}>Submit</button>
+              <button disabled={editName.length === 0} className="edit-button" onClick={() => handleSubmitChange(mp.id)}>Submit</button>
               </div>
               }
             </div>
