@@ -17,6 +17,7 @@ function RecipeView() {
   const { mealPlanId } = useContext(MealPlanIdContext);
   const { day, setDay } = useContext(DayContext);
   const { time, setTime } = useContext(TimeContext);
+  const [mealPlan, setMealPlan] = useState([])
 
   //set recipe information to display
   useEffect(() => {
@@ -39,8 +40,23 @@ function RecipeView() {
     addPost();
   };
 
+  const planName = () => {
+    console.log("hello1");
+    Axios.get(`/api/plan-name/${mealPlanId}`)
+      .then((res) => {
+        setMealPlan(res.data[0]);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    planName()
+  }, []);
+
+  console.log(mealPlan.name)
   return (
     <div className="recipe-display">
+      <p className='meal-plan-name'> MEAL PLAN:{mealPlan.name}</p>
       <div className="selector-area">
         <div className="selectors">
           <select className="options" value={day} onChange={(e) => setDay(e.target.value)}>
