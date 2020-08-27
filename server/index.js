@@ -43,6 +43,7 @@ app.get("/auth/logout", authCtrl.logout);
 // recipe endpoints
 app.get("/api/recipes", recipeCtrl.search);
 app.get("/api/recipe/:id", recipeCtrl.getRecipe);
+app.get("/api/plan-name/:id", mealPlanCtrl.planName);
 app.post("/api/add-recipe", recipeCtrl.addRecipe);
 app.delete("/api/delete/recipe/:id", recipeCtrl.deleteRecipe);
 
@@ -51,6 +52,7 @@ app.get("/api/meal-plans/:id", mealPlanCtrl.getMealPlans);
 app.get("/api/meal-plan/:id", mealPlanCtrl.getMealPlan);
 app.post("/api/add-mealplan", mealPlanCtrl.addMealPlan);
 app.delete("/api/delete/mealplan/:id", mealPlanCtrl.deleteMealPlan);
+app.put("/api/edit/mealplan/:id", mealPlanCtrl.editMealPlanName);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);

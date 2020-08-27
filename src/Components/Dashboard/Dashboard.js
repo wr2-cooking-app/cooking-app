@@ -10,6 +10,8 @@ function Dashboard(props) {
   const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
   const [mealName, setMealName] = useState("");
   const [mealPlans, setMealPlans] = useState([]);
+  const [editView, setEditView] = useState(false);
+  const [editName, setEditName] = useState("");
 
   useEffect(() => {
     getMealPlans();
@@ -40,6 +42,26 @@ function Dashboard(props) {
       .catch((err) => console.log(err));
   };
 
+  const handleSubmitChange = (id) => {
+    Axios.put(`/api/edit/mealplan/${id}`, {name: editName})
+    .then(() => {
+      setEditName("")
+      getMealPlans();
+      setEditView(null);
+    })
+    .catch((err) => console.log(err));
+  };
+
+  const handleEdit = (id) => {
+    Axios.get(`/api/meal-plan/${id}`)
+    .then(() => {
+      setEditView(id)
+    })
+    .catch(err => console.log(err))
+  }
+
+  console.log(editName)
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-box">
@@ -59,7 +81,20 @@ function Dashboard(props) {
           <div className="meal-section">
             <div className="left-meal-section">
               <span className="meal-plan-name">{i + 1}.</span>
-              <p className="meal-plan-name">{mp.name}</p>
+              {editView !== mp.id
+              ?
+              <p className="meal-plan-name" onClick={() => handleEdit(mp.id)}>{mp.name}</p>
+              : 
+              <div className="edit">
+              <input
+                className="edit-input"
+                value={editName}
+                placeholder={mp.name}
+                onChange={(e) => setEditName(e.target.value)}
+              />
+              <button disabled={editName.length === 0} className="edit-button" onClick={() => handleSubmitChange(mp.id)}>Submit</button>
+              </div>
+              }
             </div>
             <div className="dashboard-buttons">
               <img src="https://image.flaticon.com/icons/svg/609/609496.svg" alt="cart" />

@@ -4,11 +4,16 @@
   align-items: center;
   width: 50vw;
   height: 85vh;
+
+  p{
+    color: black;
+    margin-top: 25px;
+  }
 }
 
 .recipe-view-container {
   width: 40vw;
-  height: 74vh;
+  height: 66vh;
   margin: 3%;
   padding: 2%;
   display: flex;
