@@ -61,5 +61,15 @@ module.exports = {
       });
 
       res.status(200).send(formattedData);
-       }
+    },
+
+    editMealPlanName: async (req, res) => {
+      const db = req.app.get("db");
+      const id = +req.params.id;
+      const {name} = req.body;
+
+      db.meal_plan.edit_meal_plan({name, id})
+      .then(meal_plan => res.status(200).send(meal_plan))
+      .catch(err => console.log(err));
+    }
 }
