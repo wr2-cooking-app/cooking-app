@@ -1,0 +1,45 @@
+.cart-container {
+  width: 100%;
+  padding: 5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cart-container a {
+  margin: 2rem;
+}
+
+.cart-card {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1rem;
+  min-width: 60rem;
+}
+
+.cart-table {
+  width: 100%;
+}
+
+.cart-table table,
+.cart-table th,
+.cart-table td {
+  padding: 1rem;
+  border: 2px solid #416ec2;
+}
+
+.cart-table th {
+  font-weight: 600;
+}
+
+.cart-table img {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+}
+
+.cart-table td {
+  padding: 0.25rem;
+  vertical-align: middle;
+  text-align: center;
+}
