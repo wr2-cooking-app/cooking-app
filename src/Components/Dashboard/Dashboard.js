@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import { Link } from "react-router-dom";
@@ -7,23 +7,23 @@ import "./Dashboard.scss";
 
 function Dashboard(props) {
   const { userData } = useContext(UserContext);
-  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
+  const { setMealPlanId } = useContext(MealPlanIdContext);
   const [mealName, setMealName] = useState("");
   const [mealPlans, setMealPlans] = useState([]);
   const [editView, setEditView] = useState(false);
   const [editName, setEditName] = useState("");
 
-  useEffect(() => {
-    getMealPlans();
-  }, [mealName]);
-
-  const getMealPlans = () => {
+  const getMealPlans = useCallback(() => {
     Axios.get(`/api/meal-plans/${userData.id}`)
       .then((res) => {
         setMealPlans(res.data);
       })
       .catch((err) => console.log(err));
-  };
+  }, [userData.id]);
+
+  useEffect(() => {
+    getMealPlans();
+  }, [getMealPlans, mealName]);
 
   const handleAddNew = () => {
     Axios.post("/api/add-mealplan", { userId: userData.id, name: mealName })
@@ -43,22 +43,21 @@ function Dashboard(props) {
   };
 
   const handleSubmitChange = (id) => {
-    Axios.put(`/api/edit/mealplan/${id}`, {name: editName})
-    .then(() => {
-      getMealPlans();
-      setEditView();
-    })
-    .catch((err) => console.log(err));
+    Axios.put(`/api/edit/mealplan/${id}`, { name: editName })
+      .then(() => {
+        getMealPlans();
+        setEditView();
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleEdit = (id) => {
     Axios.get(`/api/meal-plan/${id}`)
-    .then(() => {
-      setEditView(!editView)
-    })
-    .catch(err => console.log(err))
-  }
-
+      .then(() => {
+        setEditView(!editView);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="dashboard-container">
@@ -79,20 +78,23 @@ function Dashboard(props) {
           <div className="meal-section">
             <div className="left-meal-section">
               <span className="meal-plan-name">{i + 1}.</span>
-              {!editView
-              ?
-              <p className="meal-plan-name" onClick={() => handleEdit(mp.id)}>{mp.name}</p>
-              : 
-              <div className="edit">
-              <input
-                className="edit-input"
-                value={editName}
-                placeholder={mp.name}
-                onChange={(e) => setEditName(e.target.value)}
-              />
-              <button className="edit-button" onClick={() => handleSubmitChange(mp.id)}>Submit</button>
-              </div>
-              }
+              {!editView ? (
+                <p className="meal-plan-name" onClick={() => handleEdit(mp.id)}>
+                  {mp.name}
+                </p>
+              ) : (
+                <div className="edit">
+                  <input
+                    className="edit-input"
+                    value={editName}
+                    placeholder={mp.name}
+                    onChange={(e) => setEditName(e.target.value)}
+                  />
+                  <button className="edit-button" onClick={() => handleSubmitChange(mp.id)}>
+                    Submit
+                  </button>
+                </div>
+              )}
             </div>
             <div className="dashboard-buttons">
               <img src="https://image.flaticon.com/icons/svg/609/609496.svg" alt="cart" />
