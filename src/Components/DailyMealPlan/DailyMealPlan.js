@@ -20,9 +20,10 @@ function DailyMealPlan (props) {
 
   console.log(meals)
   return (
-      <div className='day-display-container'>
+      <div className="weekly-plan">
+    <div className='day-display-container'>
       <section className='day-card'>
-        <h2>Monday</h2>
+        <h2 className="day-sub">Monday</h2>
         <section className='day-meal-info'>
         <span className='time-row'>Breakfast: <span>{!meals.Monday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Monday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Monday.Breakfast.title}
         <img 
@@ -42,7 +43,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Tuesday</h2>
+        <h2 className="day-sub">Tuesday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Tuesday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Tuesday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Tuesday.Breakfast.title}
           <img 
@@ -62,7 +63,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Wednesday</h2>
+        <h2 className="day-sub">Wednesday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Wednesday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Wednesday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Wednesday.Breakfast.title}
           <img 
@@ -82,7 +83,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Thursday</h2>
+        <h2 className="day-sub">Thursday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Thursday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Thursday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Thursday.Breakfast.title}
           <img 
@@ -102,7 +103,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Friday</h2>
+        <h2 className="day-sub">Friday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Friday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Friday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Friday.Breakfast.title}
           <img 
@@ -122,7 +123,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Saturday</h2>
+        <h2 className="day-sub">Saturday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Saturday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Saturday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Saturday.Breakfast.title}
           <img 
@@ -142,7 +143,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       <section className='day-card'>
-        <h2>Sunday</h2>
+        <h2 className="day-sub">Sunday</h2>
         <section className='day-meal-info'>
           <span className='time-row'>Breakfast: <span>{!meals.Sunday.Breakfast ? <Link to='/search'><button onClick={() => handleAdd('Sunday', 'Breakfast')}>ADD MEAL</button></Link> : <span>{meals.Sunday.Breakfast.title}
           <img 
@@ -162,7 +163,7 @@ function DailyMealPlan (props) {
         </section>
       </section>
       </div>
-
+      </div>
   )
 }
 
