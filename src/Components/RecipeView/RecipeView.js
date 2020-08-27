@@ -1,5 +1,6 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { DayContext } from "../../contexts/DayContext";
 import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
@@ -8,6 +9,7 @@ import "./RecipeView.scss";
 import NumericInput from "react-numeric-input";
 
 function RecipeView() {
+  const history = useHistory();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
   const [servings, setServings] = useState(null);
@@ -35,6 +37,7 @@ function RecipeView() {
       await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe.title });
       setTime("Breakfast");
       setDay("Sunday");
+      history.push(`/mealplan/${mealPlanId}`)
     };
     addPost();
   };
