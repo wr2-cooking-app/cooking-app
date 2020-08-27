@@ -1,13 +1,19 @@
 import Axios from "axios";
 import React, { useCallback, useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import DailyMealPlan from "../DailyMealPlan/DailyMealPlan";
 import "./MealPlan.scss";
-import { Link } from "react-router-dom";
 
 function MealPlan(props) {
   const [weekArr, setWeekArr] = useState([]);
-  const { mealPlanId } = useContext(MealPlanIdContext);
+  const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
+
+  // valiate that mealPlanId is on context
+  const params = useParams();
+  useEffect(() => {
+    if (!mealPlanId) setMealPlanId(+params.id);
+  }, [mealPlanId, params.id, setMealPlanId]);
 
   const getPlan = useCallback(() => {
     console.log("hello1");
