@@ -42,9 +42,6 @@ function Auth(props) {
 
   return (
     <div className="auth-box">
-      {/* <div className="logo">
-                <img  src={"https://cdn.discordapp.com/attachments/743548935607418881/745773571153985736/LogoHeader.png"} />
-            </div> */}
       <div className="box">
         {registering ? (
           <div className="login-box">
