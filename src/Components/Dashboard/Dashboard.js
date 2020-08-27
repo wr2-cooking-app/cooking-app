@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect, useCallback } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
-import { Link } from "react-router-dom";
 import Axios from "axios";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
+import { UserContext } from "../../contexts/UserContext";
 import "./Dashboard.scss";
 
 function Dashboard(props) {
@@ -97,7 +97,9 @@ function Dashboard(props) {
               )}
             </div>
             <div className="dashboard-buttons">
-              <img src="https://image.flaticon.com/icons/svg/609/609496.svg" alt="cart" />
+              <Link to={`/cart/${mp.id}`}>
+                <img src="https://image.flaticon.com/icons/svg/609/609496.svg" alt="cart" />
+              </Link>
               <Link to={`/mealplan/${mp.id}`}>
                 <img
                   onClick={() => setMealPlanId(mp.id)}
