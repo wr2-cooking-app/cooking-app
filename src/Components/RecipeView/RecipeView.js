@@ -1,11 +1,12 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import NumericInput from "react-numeric-input";
+import { useHistory } from "react-router-dom";
 import { DayContext } from "../../contexts/DayContext";
 import { MealPlanIdContext } from "../../contexts/MealPlanIdContext";
 import { RecipeIdContext } from "../../contexts/RecipeIdContext";
 import { TimeContext } from "../../contexts/TimeContext";
 import "./RecipeView.scss";
-import NumericInput from "react-numeric-input";
 
 function RecipeView() {
   const [recipe, setRecipe] = useState(null);
@@ -17,7 +18,9 @@ function RecipeView() {
   const { mealPlanId } = useContext(MealPlanIdContext);
   const { day, setDay } = useContext(DayContext);
   const { time, setTime } = useContext(TimeContext);
-  const [mealPlan, setMealPlan] = useState([])
+  const [mealPlan, setMealPlan] = useState([]);
+
+  const history = useHistory();
 
   //set recipe information to display
   useEffect(() => {
@@ -36,27 +39,23 @@ function RecipeView() {
       await Axios.post("/api/add-recipe", { recipeId, mealPlanId, day, time, title: recipe.title });
       setTime("Breakfast");
       setDay("Sunday");
+      history.push(`/mealplan/${mealPlanId}`);
     };
     addPost();
   };
 
-  const planName = () => {
-    console.log("hello1");
+  useEffect(() => {
     Axios.get(`/api/plan-name/${mealPlanId}`)
       .then((res) => {
         setMealPlan(res.data[0]);
       })
       .catch((err) => console.log(err));
-  };
+  }, [mealPlanId]);
 
-  useEffect(() => {
-    planName()
-  }, []);
-
-  console.log(mealPlan.name)
+  console.log(mealPlan.name);
   return (
     <div className="recipe-display">
-      <p className='meal-plan-name'> MEAL PLAN:{mealPlan.name}</p>
+      <p className="meal-plan-name"> MEAL PLAN:{mealPlan.name}</p>
       <div className="selector-area">
         <div className="selectors">
           <select className="options" value={day} onChange={(e) => setDay(e.target.value)}>
