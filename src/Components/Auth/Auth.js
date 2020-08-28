@@ -45,7 +45,7 @@ function Auth(props) {
       <div className="box">
         {registering ? (
           <div className="login-box">
-            <h3 style={{ color: "black", textAlign: "center" }}>Login To Your Profile:</h3>
+            <h3 className="login-header" style={{ color: "black", textAlign: "center", fontSize: "20px", textDecoration: "underline"}}>Login To Your Profile:</h3>
             <div className="login-box">
               <input className="auth-input"  value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
               <input

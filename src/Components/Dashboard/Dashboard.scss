@@ -23,7 +23,7 @@
 }
 
 .dashboard-add-new{
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -72,8 +72,9 @@
 
 .meal-section{
   height: 30px;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   overflow-y: auto;
   margin-top: 10px;
@@ -123,10 +124,35 @@
 }
 
 .edit {
+  width: 20vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .meal-plan-name:hover {
   cursor: pointer;
+}
+
+.edit-input {
+  width: 40vw;
+  height: 4vh;
+  border: 2.5px solid #416ec2;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+}
+
+.edit-button {
+  width: 100px;
+  height: 4vh;
+  border: 1px solid #416ec2;
+  background: #416ec2;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 13px;
 }

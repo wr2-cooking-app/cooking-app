@@ -86,13 +86,13 @@ function RecipeView() {
       <div className="recipe-view-container">
         {recipe ? (
           <div className="recipe-info">
+          <h1 className="recipe-name">{recipe.title}</h1>
             <div className="recipe-upper-container">
               <img className="recipe-pic" src={recipe.image} alt="food" />
               <div className="recipe-points-container">
-                <h1>{recipe.title}</h1>
-                <label>{recipe.aggregateLikes} likes</label>
-                <label>Ready in {recipe.cookingMinutes} minutes</label>
-                <label>Spoonacular score: {recipe.spoonacularScore}%</label>
+                <label className="recipe-details">{recipe.aggregateLikes} likes</label>
+                <label className="recipe-details">Ready in {recipe.cookingMinutes} minutes</label>
+                <label className="recipe-details">Spoonacular score: {recipe.spoonacularScore}%</label>
               </div>
             </div>
             <div className="recipe-summary-container">
@@ -133,7 +133,7 @@ function RecipeView() {
             </section>
           </div>
         ) : (
-          <label>{loading ? "Loading..." : "Select a recipe"}</label>
+        <h2 className="loading">{loading ? "Loading..." : "Select a recipe"}</h2>
         )}
       </div>
     </div>
