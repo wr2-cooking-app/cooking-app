@@ -14,10 +14,10 @@ function MealPlanMeal({ dayName, deleteFn, meal, time }) {
 
   return (
     <span className="time-row">
-      <label>{time}: </label>
+      <label className="time">{time}: </label>
       <span>
         {!meal ? (
-          <Link to="/search">
+          <Link to="/search" style={{ textDecoration: "none"}}>
             <button
               className="add-btn"
               onClick={() => {
@@ -30,7 +30,7 @@ function MealPlanMeal({ dayName, deleteFn, meal, time }) {
           </Link>
         ) : (
           <span>
-            <label
+            <label className="recipe-title"
               onClick={() => {
                 setRecipeId(meal.recipe_id);
                 history.push("/search");

@@ -38,12 +38,16 @@ function MealPlan(props) {
 
   return (
     <div className="meal-plan-container">
+      <div>
+      {!weekArr.Monday ? <p>No Meals To View</p> : <DailyMealPlan meals={weekArr} deleteFn={handleDelete} />}
+      </div>
+      <div>
       {mealPlanId && (
         <Link to={`/cart/${mealPlanId}`}>
-          <button>Generate shopping cart</button>
+          <button className="shopping-cart-button">Generate shopping cart</button>
         </Link>
       )}
-      {!weekArr.Monday ? <p>No Meals To View</p> : <DailyMealPlan meals={weekArr} deleteFn={handleDelete} />}
+      </div>
     </div>
   );
 }

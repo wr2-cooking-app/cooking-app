@@ -18,7 +18,7 @@ const RecipeSearchResult = (props) => {
         <img src={`${baseUri}${image}`} alt="Recipe" onClick={() => setRecipeId(id)} />
       </div>
       <div>
-        <label style={{ textAlign: "center", fontFamily: "Trebuchet MS", color: "black", fontSize: "8px" }}>{title}</label>
+        <p className="food-label" >{title}</p>
       </div>
     </div>
   );
@@ -66,16 +66,16 @@ export default () => {
           placeholder="Cuisine"
           isMulti
         />
-        <Dropdown className="dropdown-text" items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
+        <Dropdown className="drop-text" items={dropdownOptions.diet} onSelect={setDietQuery} placeholder="Diet" />
         <Dropdown
-          className="dropdown-text"
+          className="drop-text"
           items={dropdownOptions.intolerances}
           onSelect={setIntolerancesQuery}
           placeholder="Intolerances"
           isMulti
         />
         <Dropdown
-          className="dropdown-text"
+          className="drop-text"
           items={dropdownOptions.mealType}
           onSelect={setMealTypeQuery}
           placeholder="Meal type"

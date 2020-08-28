@@ -1,7 +1,6 @@
-
 .day-display-container{
   width: 100vw;
-  height: 88vh;
+  height: 86vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -9,19 +8,19 @@
   background-image: url("https://i.pinimg.com/originals/46/15/79/4615790054e53633ee2e8ebd9d871b66.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: .5%;
 }
 
 .day-card{
   width: 22vw;
-  height: 36vh;
+  height: 39vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1.75rem 1rem;
+  margin: 1rem 1.2rem;
   background: hsla(96, 6%, 84%, 0.781);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: black;
+  
   //border: 3px solid #416ec2;
 }
 
@@ -38,13 +37,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 290px;
-  height: 80px;
-  margin: 7px;
+  width: 19.7vw;
+  height: 34vh;
+  margin: 5px;
   //border: solid black 1px;
   //background: pink;
-  border: 3px solid #416ec2;
+  background: rgb(65, 140, 238);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
+  border: 1px dashed #c7d2d8;
 
   span{
     display: flex;
@@ -75,9 +76,10 @@
   border: 0;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin-right: 10px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  margin-right: 8px;
+  text-decoration: none;
 }
 
 h2 {
@@ -87,4 +89,41 @@ h2 {
 
 .day-sub {
   margin-top: 5px;
+}
+
+label.recipe-title{
+  font-size: 13px;
+  font-family: "Lucida Grande", Tahoma;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+label.recipe-details {
+  margin: 5px;
+  color:black;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+label.time {
+  margin: 5px;
+  text-decoration:underline;
+  color: #FFFFFF;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-family: "Lucida Grande", Tahoma;
+}
+
+h2 {
+  margin-top: 5px;
+  background: rgb(156, 167, 230);
+  border-radius: 50% 0%;
+  box-shadow: 0 0 6px rgb(41, 185, 82), 0 0 3px beige inset;
+  padding: 0.5em 1.3em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+  
+
+.loading {
+  color: black;
 }

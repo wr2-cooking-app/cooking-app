@@ -17,8 +17,8 @@ export default () => {
 
   return (
     <main className="cart-container">
-      <Link to={`/mealplan/${params.id}`}>
-        <button>Back to meal plan</button>
+      <Link style={{ textDecoration: "none"}} to={`/mealplan/${params.id}`}>
+        <button className="shopping-cart-button2">Back to meal plan</button>
       </Link>
       {cart ? (
         <div className="cart-card">
