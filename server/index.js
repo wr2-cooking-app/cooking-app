@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({path: __dirname + '/../.env'});
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
@@ -6,6 +6,7 @@ const authCtrl = require("./controllers/authCtrl");
 const recipeCtrl = require("./controllers/recipeCtrl");
 const mealPlanCtrl = require("./controllers/mealPlanCtrl");
 const cartCtrl = require("./controllers/cartCtrl");
+const path = require('path');
 
 const app = express();
 
@@ -57,6 +58,13 @@ app.put("/api/edit/mealplan/:id", mealPlanCtrl.editMealPlanName);
 
 // cart endpoints
 app.get("/api/carts/:id", cartCtrl.getCart);
+
+// hosting 
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../build/index.html'))
+})
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);
