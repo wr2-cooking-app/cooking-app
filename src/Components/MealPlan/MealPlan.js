@@ -8,6 +8,7 @@ import "./MealPlan.scss";
 function MealPlan(props) {
   const [weekArr, setWeekArr] = useState([]);
   const { mealPlanId, setMealPlanId } = useContext(MealPlanIdContext);
+  const [mealPlan, setMealPlan] = useState([]);
 
   // valiate that mealPlanId is on context
   const params = useParams();
@@ -36,12 +37,21 @@ function MealPlan(props) {
     getPlan();
   }, [getPlan, mealPlanId]);
 
+  useEffect(() => {
+    Axios.get(`/api/plan-name/${mealPlanId}`)
+      .then((res) => {
+        setMealPlan(res.data[0]);
+      })
+      .catch((err) => console.log(err));
+  }, [mealPlanId]);
+
   return (
     <div className="meal-plan-container">
       <div>
       {!weekArr.Monday ? <p>No Meals To View</p> : <DailyMealPlan meals={weekArr} deleteFn={handleDelete} />}
       </div>
       <div>
+      <p className="meal-planner-name"> MEAL PLAN:{mealPlan.name}</p>
       {mealPlanId && (
         <Link to={`/cart/${mealPlanId}`}>
           <button className="shopping-cart-button">Generate shopping cart</button>
