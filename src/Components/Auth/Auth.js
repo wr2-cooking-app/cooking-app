@@ -20,6 +20,8 @@ function Auth(props) {
     if (userData.id) history.push("/dashboard");
   }, [history, userData]);
 
+  //made it back to normal
+
   const handleRegister = () => {
     axios
       .post("/auth/register", { email, password, first_name, last_name, profile_picture })
