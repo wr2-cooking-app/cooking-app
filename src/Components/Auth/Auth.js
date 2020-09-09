@@ -18,9 +18,7 @@ function Auth(props) {
   // forward to search page if already signed in
   useEffect(() => {
     if (userData.id) history.push("/dashboard");
-  }, []);
-
-  //made it back to normal
+  }, [userData]);
 
   const handleRegister = () => {
     axios
