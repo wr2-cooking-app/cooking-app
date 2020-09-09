@@ -82,6 +82,10 @@
   text-decoration: none;
 }
 
+.add-btn:hover{
+  cursor: pointer;
+}
+
 h2 {
   font-size: 25px;
   font-family: "Trebuchet MS", sans-serif;
@@ -96,6 +100,11 @@ label.recipe-title{
   font-family: "Lucida Grande", Tahoma;
   text-decoration: none;
   text-shadow: none;
+}
+
+label.recipe-title:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 label.recipe-details {
