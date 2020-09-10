@@ -16,9 +16,9 @@ function Auth(props) {
   let [profile_picture, setProfilePicture] = useState("");
 
   // forward to search page if already signed in
-  useEffect(() => {
-    if (userData.id) history.push("/dashboard");
-  }, [userData]);
+  // useEffect(() => {
+  //   if (userData.id) history.push("/dashboard");
+  // }, [userData]);
 
   const handleRegister = () => {
     axios
