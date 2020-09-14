@@ -12,9 +12,9 @@ export default () => {
   const location = useLocation();
 
   // kick back to auth page if not signed in
-  useEffect(() => {
-    if (!userData.id) history.push("/");
-  }, [history, location, userData.id]);
+  // useEffect(() => {
+  //   if (!userData.id) history.push("/");
+  // }, [history, location, userData.id]);
 
   // don't show if on auth page
   if (location.pathname === "/") return null;
